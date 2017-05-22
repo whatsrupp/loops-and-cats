@@ -13,6 +13,10 @@
   "keywords": [
     "loop"
   ],
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "node index.js"
+  },
   "author": "makers",
   "license": "ISC",
   "bugs": {
@@ -21,6 +25,10 @@
   "homepage": "https://github.com/whatsrupp/loops-and-cats#readme",
   "dependencies": {
     "ejs": "^2.5.6",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "mocha": "^3.3.0",
+    "node-inspector": "^1.1.1",
+    "yo": "^1.8.5",
+    "zombie": "^5.0.5"
   }
 }

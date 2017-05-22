@@ -1,0 +1,9 @@
+body {
+    background-image: url("/images/geometric-background.jpg");
+    background-size: cover;
+
+}
+
+* {
+  color: white;
+}
