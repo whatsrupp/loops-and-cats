@@ -10,6 +10,7 @@ var noteResolution = 2; // 0 = 16th, 1 = 8th, 2 = 4th
 var noteLength = 0.05;
 var notesInQueue = [];
 var timerWorker = null;
+var testBuffer = null;
 
 function nextNote() {
   var secondsPerBeat = 60.0 / tempo;
@@ -30,6 +31,11 @@ function scheduleNote (beatNumber, time) {
     osc.frequency = 880.0;
   } else {
     osc.frequency.value = 440.0;
+  }
+
+  if (beatNumber == 0){
+    loadTestSound('/audio/1234.ogg')
+    playSound(testBuffer, time)
   }
 
   osc.start(time);
@@ -55,6 +61,29 @@ function play() {
     timerWorker.postMessage('stop');
     return 'play';
   }
+}
+
+function loadTestSound(src){
+  var request = new XMLHttpRequest();
+
+
+  request.open('GET', src, true);
+  request.responseType = 'arraybuffer';
+  request.onload = function(){
+    audioContext.decodeAudioData(request.response, function(buffer){
+      testBuffer = buffer;
+    }, function (){
+      console.log ('Error')
+    });
+  }
+  request.send();
+}
+
+function playSound(buffer,time){
+  var source = audioContext.createBufferSource();
+  source.buffer = buffer;
+  source.connect(audioContext.destination);
+  source.start(time)
 }
 
 function init() {
