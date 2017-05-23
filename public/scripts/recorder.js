@@ -67,15 +67,47 @@ if (navigator.getUserMedia) {
         var audioURL = window.URL.createObjectURL(blob);
         // audio.src = audioURL;
 
+        // var sourceToAudio = function() {
+        //   var placeHolder;
+        //   for(var i = 8; i >= 1; i--) {
+        //     if (document.getElementById(i.toString()).src === "http://localhost:6969/") {
+        //       placeHolder = i;
+        //     }
+        //   }
+        //   document.getElementById(placeHolder.toString()).src = audioURL;
+        // };
+        var input1;
+        var input2;
+        var input3;
+        var input4;
+        var input5;
+        var input6;
+        var input7;
+        var input8;
+        var wavesurfer1;
+
+        // var audioArray = [input1, input2, input3, input4, input5, input6, input7, input8];
+
         var sourceToAudio = function() {
-          var placeHolder;
-          for(var i = 8; i >= 1; i--) {
-            if (document.getElementById(i.toString()).src === "http://localhost:6969/") {
-              placeHolder = i;
+          var placeHolder = 'waveform';
+           for(var i = 1; i <= 8; i++) {
+             placeHolder = placeHolder + i.toString();
+             if(document.getElementById(placeHolder).innerHTML === ''){
+               debugger;
+             wavesurfer1 = WaveSurfer.create({
+               container: '#waveform1',
+               waveColor: 'violet',
+               progressColor: 'purple'
+             });
+             };
             }
-          }
-          document.getElementById(placeHolder.toString()).src = audioURL;
-        };
+            wavesurfer1.load(audioURL);
+            wavesurfer1.on('ready', function() {
+              wavesurfer1.play();
+
+          // }
+        });}
+        // });};
 
         sourceToAudio();
 
@@ -87,6 +119,90 @@ document.getElementsByClassName('5')[0].onclick = function(){document.getElement
 document.getElementsByClassName('6')[0].onclick = function(){document.getElementById('6').src = ''}
 document.getElementsByClassName('7')[0].onclick = function(){document.getElementById('7').src = ''}
 document.getElementsByClassName('8')[0].onclick = function(){document.getElementById('8').src = ''}
+
+
+var wavesurfer2 = WaveSurfer.create({
+  container: '#2',
+  waveColor: 'violet',
+  progressColor: 'purple'
+});
+
+var wavesurfer3 = WaveSurfer.create({
+  container: '#3',
+  waveColor: 'violet',
+  progressColor: 'purple'
+});
+
+var wavesurfer4 = WaveSurfer.create({
+  container: '#4',
+  waveColor: 'violet',
+  progressColor: 'purple'
+});
+
+var wavesurfer5 = WaveSurfer.create({
+  container: '#5',
+  waveColor: 'violet',
+  progressColor: 'purple'
+});
+
+var wavesurfer6 = WaveSurfer.create({
+  container: '#6',
+  waveColor: 'violet',
+  progressColor: 'purple'
+});
+
+var wavesurfer7 = WaveSurfer.create({
+  container: '#7',
+  waveColor: 'violet',
+  progressColor: 'purple'
+});
+
+var wavesurfer8 = WaveSurfer.create({
+  container: '#8',
+  waveColor: 'violet',
+  progressColor: 'purple'
+});
+
+// wavesurfer1.load(input1);
+// wavesurfer1.on('ready', function () {
+//     wavesurfer1.play();
+// });
+
+// wavesurfer2.load(input2);
+// wavesurfer2.on('ready', function () {
+//     wavesurfer2.play();
+// });
+//
+// wavesurfer3.load(input3);
+// wavesurfer3.on('ready', function () {
+//     wavesurfer3.play();
+// });
+//
+// wavesurfer4.load(input4);
+// wavesurfer4.on('ready', function () {
+//     wavesurfer4.play();
+// });
+//
+// wavesurfer5.load(input5);
+// wavesurfer5.on('ready', function () {
+//     wavesurfer5.play();
+// });
+//
+// wavesurfer6.load(input6);
+// wavesurfer6.on('ready', function () {
+//     wavesurfer6.play();
+// });
+//
+// wavesurfer7.load(input7);
+// wavesurfer7.on('ready', function () {
+//     wavesurfer7.play();
+// });
+//
+// wavesurfer8.load(input8);
+// wavesurfer8.on('ready', function () {
+//     wavesurfer8.play();
+// });
+
 
 
         // deleteButton.onclick = function(e) {
