@@ -24,13 +24,13 @@ if (navigator.getUserMedia) {
         // Might be css:
         record.style.background = 'red';
         record.style.color = 'black';
-      }
+      };
 
       var chunks = [];
 
       mediaRecorder.ondataavailable = function(e) {
         chunks.push(e.data);
-      }
+      };
 
       stop.onclick = function() {
         mediaRecorder.stop();
@@ -38,7 +38,7 @@ if (navigator.getUserMedia) {
         console.log("Recorder stopped");
         record.style.background = '';
         record.style.color = '';
-      }
+      };
 
       // what is going on in this method below????????!?!?!?!?!
       mediaRecorder.onstop = function(e) {
@@ -67,23 +67,17 @@ if (navigator.getUserMedia) {
         var audioURL = window.URL.createObjectURL(blob);
         // audio.src = audioURL;
 
-        if (document.getElementById('1').src === "http://localhost:6969/") {
-        document.getElementById('1').src = audioURL;
-      } else if (document.getElementById('2').src === "http://localhost:6969/") {
-      document.getElementById('2').src = audioURL
-    } else if (document.getElementById('3').src === "http://localhost:6969/") {
-    document.getElementById('3').src = audioURL
-  } else if (document.getElementById('4').src === "http://localhost:6969/") {
-  document.getElementById('4').src = audioURL
-} else if (document.getElementById('5').src === "http://localhost:6969/") {
-document.getElementById('5').src = audioURL
-} else if (document.getElementById('6').src === "http://localhost:6969/") {
-document.getElementById('6').src = audioURL
-} else if (document.getElementById('7').src === "http://localhost:6969/") {
-document.getElementById('7').src = audioURL
-} else if (document.getElementById('8').src === "http://localhost:6969/") {
-document.getElementById('8').src = audioURL
-}
+        var sourceToAudio = function() {
+          var placeHolder;
+          for(var i = 8; i >= 1; i--) {
+            if (document.getElementById(i.toString()).src === "http://localhost:6969/") {
+              placeHolder = i;
+            }
+          }
+          document.getElementById(placeHolder.toString()).src = audioURL;
+        };
+
+        sourceToAudio();
 
 document.getElementsByClassName('1')[0].onclick = function(){document.getElementById('1').src = ''}
 document.getElementsByClassName('2')[0].onclick = function(){document.getElementById('2').src = ''}
@@ -99,11 +93,11 @@ document.getElementsByClassName('8')[0].onclick = function(){document.getElement
         //   var evtTgt = e.target;
         //   evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
         // }
-      }
+      };
     },
     // Error callback
     function(err) {
-      console.log("The following getUserMedia error occured: " + err + ". That is not nice, eh?")
+      console.log("The following getUserMedia error occured: " + err + ". That is not nice, eh?");
     }
   );
 } else {
