@@ -44,33 +44,61 @@ if (navigator.getUserMedia) {
       mediaRecorder.onstop = function(e) {
         console.log("Recorder stopped!");
 
-        var clipName = prompt('Enter a name for dis loop brooo');
+        // var clipName = prompt('Enter a name for dis loop brooo');
 
-        var clipContainer = document.createElement('article');
-        var clipLabel = document.createElement('p');
-        var audio = document.createElement('audio');
-        var deleteButton = document.createElement('button');
+        // var clipContainer = document.createElement('article');
+        // var clipLabel = document.createElement('p');
+        // var audio = document.createElement('audio');
+        // var deleteButton = document.createElement('button');
 
-        clipContainer.classList.add('clip');
-        audio.setAttribute('controls', '');
-        deleteButton.innerHTML = 'Delete';
-        clipLabel.innerHTML = clipName;
+        // clipContainer.classList.add('clip');
+        // audio.setAttribute('controls', '');
+        // deleteButton.innerHTML = 'Delete';
+        // clipLabel.innerHTML = clipName;
 
-        clipContainer.appendChild(audio);
-        clipContainer.appendChild(clipLabel);
-        clipContainer.appendChild(deleteButton);
-        soundClips.appendChild(clipContainer);
+        // clipContainer.appendChild(audio);
+        // clipContainer.appendChild(clipLabel);
+        // clipContainer.appendChild(deleteButton);
+        // soundClips.appendChild(clipContainer);
 
         var blob = new Blob(chunks, {'type': 'audio/ogg; codecs=opus'});
         console.log(chunks);
         chunks = [];
         var audioURL = window.URL.createObjectURL(blob);
-        audio.src = audioURL;
+        // audio.src = audioURL;
 
-        deleteButton.onclick = function(e) {
-          var evtTgt = e.target;
-          evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-        }
+        if (document.getElementById('1').src === "http://localhost:6969/") {
+        document.getElementById('1').src = audioURL;
+      } else if (document.getElementById('2').src === "http://localhost:6969/") {
+      document.getElementById('2').src = audioURL
+    } else if (document.getElementById('3').src === "http://localhost:6969/") {
+    document.getElementById('3').src = audioURL
+  } else if (document.getElementById('4').src === "http://localhost:6969/") {
+  document.getElementById('4').src = audioURL
+} else if (document.getElementById('5').src === "http://localhost:6969/") {
+document.getElementById('5').src = audioURL
+} else if (document.getElementById('6').src === "http://localhost:6969/") {
+document.getElementById('6').src = audioURL
+} else if (document.getElementById('7').src === "http://localhost:6969/") {
+document.getElementById('7').src = audioURL
+} else if (document.getElementById('8').src === "http://localhost:6969/") {
+document.getElementById('8').src = audioURL
+}
+
+document.getElementsByClassName('1')[0].onclick = function(){document.getElementById('1').src = ''}
+document.getElementsByClassName('2')[0].onclick = function(){document.getElementById('2').src = ''}
+document.getElementsByClassName('3')[0].onclick = function(){document.getElementById('3').src = ''}
+document.getElementsByClassName('4')[0].onclick = function(){document.getElementById('4').src = ''}
+document.getElementsByClassName('5')[0].onclick = function(){document.getElementById('5').src = ''}
+document.getElementsByClassName('6')[0].onclick = function(){document.getElementById('6').src = ''}
+document.getElementsByClassName('7')[0].onclick = function(){document.getElementById('7').src = ''}
+document.getElementsByClassName('8')[0].onclick = function(){document.getElementById('8').src = ''}
+
+
+        // deleteButton.onclick = function(e) {
+        //   var evtTgt = e.target;
+        //   evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+        // }
       }
     },
     // Error callback
