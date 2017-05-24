@@ -29,6 +29,9 @@ function Metronome() {
     this.beatsInQueue.push(beatObject);
   }
 
+  this.playAudioFile = function (buffer, time){
+  }
+
 }
 
 exports.Metronome = Metronome;

@@ -2,6 +2,9 @@
 
 var assert = require('assert')
 var Metronome = require('../../public/scripts/metronome.js')
+var chai = require("chai")
+var sinonChai = require("sinon-chai")
+chai.use(sinonChai)
 
 describe('Metronome Model', function(){
 
@@ -22,7 +25,18 @@ describe('Metronome Model', function(){
       metronome.scheduleBeat()
       assert.equal(metronome.beatsInQueue[0].time, expectedBeatObject.time)
       assert.equal(metronome.beatsInQueue[0].beat, expectedBeatObject.beat)
+    });
 
+    it('calls load audio file', function(){
+
+    });
+    it('calls load oscillator', function(){
+
+    });
+    it('calls play oscillator', function(){
+
+    });
+    it('calls play audiofile', function(){
 
     });
   });
@@ -31,7 +45,34 @@ describe('Metronome Model', function(){
 
   });
 
-  describe('play', function(){
+  describe('updatePlayState', function(){
+
+    describe('context: is playing', function(){
+      it('changes to not playing', function(){
+
+      });
+
+      it('resets the beat number', function(){
+
+      });
+      it('resets the next note time', function(){
+
+      });
+      it('sends a stop message to the timer worker', function(){
+
+      });
+
+    });
+
+    describe('context: is not playing', function(){
+      it('changes to playing', function(){
+
+      });
+      it('sends a start message to the timer worker', function(){
+
+      });
+    });
+
 
   });
 
