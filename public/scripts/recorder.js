@@ -6,6 +6,22 @@ var record = document.querySelector('.record');
 var stop = document.querySelector('.stop');
 var soundClips = document.querySelector('.sound-clips');
 
+populateWaveforms = function() {
+  for (var i = 1; i <= 8; i++) {
+    var waveTest = WaveSurfer.create({
+      container: '#waveform' + i,
+      waveColor: 'violet',
+      progressColor: 'purple'
+    });
+    waveTest.load('/audio/myRecording01.wav')
+    console.log(waveTest);
+  }
+};
+populateWaveforms();
+
+firstEmptyWaveform = function() {
+
+}
 
 if (navigator.getUserMedia) {
   console.log("getUserMedia supported! Nice eh?");
@@ -80,27 +96,28 @@ if (navigator.getUserMedia) {
 
         // var audioArray = [input1, input2, input3, input4, input5, input6, input7, input8];
 
-        var sourceToAudio = function() {
-          var placeHolder;
-           for(var i = 1; i <= 8; i++) {
-             placeHolder = 'waveform' + i.toString();
-             console.log(placeHolder)
-             console.log(document.getElementById(placeHolder))
-             if(document.getElementById(placeHolder).innerHTML === ''){
-              //  debugger;
-             wavesurfer1 = WaveSurfer.create({
-               container: '#' + placeHolder,
-               waveColor: 'violet',
-               progressColor: 'purple'
-             });
-             };
-            }
-            wavesurfer1.load(audioURL);
-            wavesurfer1.on('ready', function() {
-              wavesurfer1.play();
-            });
-      }
-        sourceToAudio();
+      //   var sourceToAudio = function() {
+      //     var placeHolder;
+      //       for(var i = 1; i <= 8; i++) {
+      //         placeHolder = 'waveform' + i.toString();
+      //         console.log(placeHolder)
+      //         console.log(document.getElementById(placeHolder))
+      //         if(document.getElementById(placeHolder).innerHTML === ''){
+      //         //  debugger;
+      //           wavesurfer1 = WaveSurfer.create({
+      //             container: '#' + placeHolder,
+      //             waveColor: 'violet',
+      //             progressColor: 'purple'
+      //           });
+      //         };
+      //       }
+      //       wavesurfer1.load(audioURL);
+      //       wavesurfer1.on('ready', function() {
+      //         debugger;
+      //         wavesurfer1.play();
+      //       });
+      // }
+      //   sourceToAudio();
 
 document.getElementsByClassName('1')[0].onclick = function(){document.getElementById('1').src = ''}
 document.getElementsByClassName('2')[0].onclick = function(){document.getElementById('2').src = ''}
