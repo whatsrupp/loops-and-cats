@@ -6,18 +6,52 @@ var record = document.querySelector('.record');
 var stop = document.querySelector('.stop');
 var soundClips = document.querySelector('.sound-clips');
 
-populateWaveforms = function() {
-  for (var i = 1; i <= 8; i++) {
+
+(function(exports){
+
+  var waveSurfers = [];
+
+  for (var i = 1; i <= 8; i++){
     var waveTest = WaveSurfer.create({
       container: '#waveform' + i,
       waveColor: 'violet',
       progressColor: 'purple'
     });
-    waveTest.load('/audio/myRecording01.wav')
-    console.log(waveTest);
+    waveTest.load('/audio/myRecording01.wav');
+    waveSurfers.push(waveTest)
   }
-};
-populateWaveforms();
+
+  exports.waveTest = waveTest;
+  exports.waveSurfers = waveSurfers;
+
+})(this)
+
+// (function(exports){
+//
+//   populateWaveforms = function() {
+//     var waveTest = WaveSurfer.create({
+//       container: '#waveform1',
+//       waveColor: 'violet',
+//       progressColor: 'purple'
+//     });
+//     waveTest.load('/audio/myRecording01.wav')
+//
+//   //   for (var i = 1; i <= 8; i++) {
+//   //     waveTest = WaveSurfer.create({
+//   //       container: '#waveform' + i,
+//   //       waveColor: 'violet',
+//   //       progressColor: 'purple'
+//   //     });
+//   //     waveTest.load('/audio/myRecording01.wav')
+//   //     console.log(waveTest);
+//   //   }
+//   // };
+//
+//   exports.waveTest = waveTest;
+//   exports.populateWaveforms = populateWaveforms;
+// })(this)
+//
+// populateWaveforms();
 
 firstEmptyWaveform = function() {
 
