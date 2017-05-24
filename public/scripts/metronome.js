@@ -2,15 +2,16 @@
 
 function Metronome() {
 
-  this.currentBeatNumber = 0
+  this.nextBeatNumber = 0
   this.tempo = 120
   this.nextBeatTime = 0.0
+  this.beatsInQueue = []
 
 
   this.updateBeatNumber = function() {
-    this.currentBeatNumber += 1;
-    if(this.currentBeatNumber == 4){
-      this.currentBeatNumber = 0;
+    this.nextBeatNumber += 1;
+    if(this.nextBeatNumber == 4){
+      this.nextBeatNumber = 0;
     }
   }
 
@@ -18,6 +19,14 @@ function Metronome() {
     var secondsInMinute = 60.0;
     var secondsPerBeat = secondsInMinute / this.tempo;
     this.nextBeatTime += secondsPerBeat;
+  }
+
+  this.scheduleBeat = function(){
+    var beatObject = {
+      beat: this.nextBeatNumber,
+      time: this.nextBeatTime
+    };
+    this.beatsInQueue.push(beatObject);
   }
 
 }

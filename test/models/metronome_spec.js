@@ -12,8 +12,19 @@ describe('Metronome Model', function(){
 
   });
 
-  describe('scheduleNote', function(){
+  describe('scheduleBeat', function(){
+    it('updates beatsInQueue', function(){
+      var metronome = new Metronome.Metronome();
+      var beat = 0
+      var time = 0
+      var expectedBeatObject = {beat: beat, time: time}
 
+      metronome.scheduleBeat()
+      assert.equal(metronome.beatsInQueue[0].time, expectedBeatObject.time)
+      assert.equal(metronome.beatsInQueue[0].beat, expectedBeatObject.beat)
+
+
+    });
   });
 
   describe('scheduler', function(){
@@ -43,9 +54,9 @@ describe('Metronome Model', function(){
   describe('updateBeatNumber', function() {
     it('it increments beat number', function(){
       var metronome = new Metronome.Metronome();
-      var initialBeatNumber = metronome.currentBeatNumber
+      var initialBeatNumber = metronome.nextBeatNumber
       metronome.updateBeatNumber();
-      assert.equal(metronome.currentBeatNumber, initialBeatNumber + 1)
+      assert.equal(metronome.nextBeatNumber, initialBeatNumber + 1)
     });
     it('wraps the beat at the end of the bar', function() {
       var metronome = new Metronome.Metronome();
@@ -53,7 +64,7 @@ describe('Metronome Model', function(){
       metronome.updateBeatNumber();
       metronome.updateBeatNumber();
       metronome.updateBeatNumber();
-      assert.equal(metronome.currentBeatNumber, 0)
+      assert.equal(metronome.nextBeatNumber, 0)
     })
   });
 });
