@@ -1,34 +1,8 @@
-// This line will let the code work regardless of browser
-// firefox, chrome but not safari
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
 var record = document.querySelector('.record');
 var stop = document.querySelector('.stop');
 var soundClips = document.querySelector('.sound-clips');
-
-
-(function(exports){
-
-  var waveSurfers = [];
-
-  for (var i = 1; i <= 8; i++){
-    var waveTest = WaveSurfer.create({
-      container: '#waveform' + i,
-      waveColor: 'violet',
-      progressColor: 'purple'
-    });
-    waveTest.load('/audio/myRecording01.wav');
-    waveSurfers.push(waveTest)
-  }
-
-  exports.waveTest = waveTest;
-  exports.waveSurfers = waveSurfers;
-
-})(this)
-
-firstEmptyWaveform = function() {
-
-}
 
 if (navigator.getUserMedia) {
   console.log("getUserMedia supported! Nice eh?");
@@ -44,7 +18,6 @@ if (navigator.getUserMedia) {
         mediaRecorder.start();
         console.log(mediaRecorder.state); // logs 'recording' in the console
         console.log("Recorder started");
-        // Might be css:
         record.style.background = 'red';
         record.style.color = 'black';
       };
@@ -113,4 +86,9 @@ document.getElementsByClassName('8')[0].onclick = function(){document.getElement
   );
 } else {
   console.log("getUserMedia not supported on your browser");
+}
+
+
+function successCallBack() {
+
 }
