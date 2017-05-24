@@ -26,33 +26,6 @@ var soundClips = document.querySelector('.sound-clips');
 
 })(this)
 
-// (function(exports){
-//
-//   populateWaveforms = function() {
-//     var waveTest = WaveSurfer.create({
-//       container: '#waveform1',
-//       waveColor: 'violet',
-//       progressColor: 'purple'
-//     });
-//     waveTest.load('/audio/myRecording01.wav')
-//
-//   //   for (var i = 1; i <= 8; i++) {
-//   //     waveTest = WaveSurfer.create({
-//   //       container: '#waveform' + i,
-//   //       waveColor: 'violet',
-//   //       progressColor: 'purple'
-//   //     });
-//   //     waveTest.load('/audio/myRecording01.wav')
-//   //     console.log(waveTest);
-//   //   }
-//   // };
-//
-//   exports.waveTest = waveTest;
-//   exports.populateWaveforms = populateWaveforms;
-// })(this)
-//
-// populateWaveforms();
-
 firstEmptyWaveform = function() {
 
 }
@@ -94,41 +67,10 @@ if (navigator.getUserMedia) {
       mediaRecorder.onstop = function(e) {
         console.log("Recorder stopped!");
 
-        // var clipName = prompt('Enter a name for dis loop brooo');
-
-        // var clipContainer = document.createElement('article');
-        // var clipLabel = document.createElement('p');
-        // var audio = document.createElement('audio');
-        // var deleteButton = document.createElement('button');
-
-        // clipContainer.classList.add('clip');
-        // audio.setAttribute('controls', '');
-        // deleteButton.innerHTML = 'Delete';
-        // clipLabel.innerHTML = clipName;
-
-        // clipContainer.appendChild(audio);
-        // clipContainer.appendChild(clipLabel);
-        // clipContainer.appendChild(deleteButton);
-        // soundClips.appendChild(clipContainer);
-
         var blob = new Blob(chunks, {'type': 'audio/ogg; codecs=opus'});
         console.log(chunks);
         chunks = [];
         var audioURL = window.URL.createObjectURL(blob);
-        // audio.src = audioURL;
-
-        // var sourceToAudio = function() {
-        //   var placeHolder;
-        //   for(var i = 8; i >= 1; i--) {
-        //     if (document.getElementById(i.toString()).src === "http://localhost:6969/") {
-        //       placeHolder = i;
-        //     }
-        //   }
-        //   document.getElementById(placeHolder.toString()).src = audioURL;
-        // };
-
-
-        // var audioArray = [input1, input2, input3, input4, input5, input6, input7, input8];
 
       //   var sourceToAudio = function() {
       //     var placeHolder;
