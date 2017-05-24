@@ -5,6 +5,7 @@ var LoopFactory = require('../../public/scripts/models/loopFactory.js')
 var chai = require("chai")
 var sinonChai = require("sinon-chai")
 var expect = require('chai').expect
+var wavemaker = require('../../public/scripts/models/waveMaker.js')
 chai.use(sinonChai)
 
 describe('Loop Factory Model', function(){
@@ -20,7 +21,6 @@ describe('Loop Factory Model', function(){
   describe('create', function(){
     it('creates a new loop prototype and stores it in loops', function(){
       var loopFactory = new LoopFactory.LoopFactory();
-
     });
   });
 });
