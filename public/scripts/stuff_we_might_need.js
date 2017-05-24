@@ -5,6 +5,7 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 var record = document.querySelector('.record');
 var stop = document.querySelector('.stop');
 var soundClips = document.querySelector('.sound-clips');
+var urls = [];
 
 
 (function(exports){
@@ -25,10 +26,10 @@ var soundClips = document.querySelector('.sound-clips');
   exports.waveSurfers = waveSurfers;
 
 })(this)
-
-firstEmptyWaveform = function() {
-
-}
+//
+// firstEmptyWaveform = function() {
+//
+// }
 
 if (navigator.getUserMedia) {
   console.log("getUserMedia supported! Nice eh?");
@@ -71,6 +72,8 @@ if (navigator.getUserMedia) {
         console.log(chunks);
         chunks = [];
         var audioURL = window.URL.createObjectURL(blob);
+        urls.push(audioURL);
+
 
       //   var sourceToAudio = function() {
       //     var placeHolder;
