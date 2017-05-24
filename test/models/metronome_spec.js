@@ -30,8 +30,13 @@ describe('Metronome Model', function(){
 
   describe('nextNote', function(){
     it('increments the beat', function(){
-      metronome.nextNote();
-
+      var metronome = new Metronome.Metronome();
+      var initialBeatTime = metronome.nextBeatTime;
+      metronome.nextBeatInfoUpdate();
+      var updatedBeatTime = metronome.nextBeatTime;
+      var difference = updatedBeatTime - initialBeatTime;
+      var timePerBeat = 60.0 / metronome.tempo;
+      assert.equal(difference, timePerBeat)
     });
   });
 
