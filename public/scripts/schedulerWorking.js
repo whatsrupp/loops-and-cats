@@ -26,13 +26,8 @@ function nextNote() {
 function scheduleNote (beatNumber, time) {
   notesInQueue.push({note: beatNumber, time: time});
 
-  var osc = audioContext.createOscillator();
-  osc.connect (audioContext.destination);
-  if (beatNumber == 0) {
-    osc.frequency.value = 880.0;
-  } else {
-    osc.frequency.value = 440.0;
-  }
+  loadOscillator(beatNumber);
+  cueOscillator(beatNumber,time)
 
   if (beatNumber == 0 && isRecording == true){
     var timeNow = audioContext.currentTime;
@@ -50,8 +45,7 @@ function scheduleNote (beatNumber, time) {
     }
   }
 
-  osc.start(time);
-  osc.stop(time + noteLength);
+
 }
 
 function scheduler() {
