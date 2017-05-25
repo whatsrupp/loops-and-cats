@@ -29,7 +29,8 @@
       console.log(chunks);
       chunks = [];
       var audioURL = window.URL.createObjectURL(blob);
-      urls.push(audioURL);
+      // debugger;
+      loopFactory.create(audioURL);
     };
   }
 
