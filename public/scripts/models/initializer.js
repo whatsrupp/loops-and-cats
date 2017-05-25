@@ -19,7 +19,7 @@
 // window.addEventListener('load', init);
 loopFactory = new LoopFactory();
 waveMaker = new WaveMaker();
-var audioSrc = '/audio/1234.ogg';
+var audioSrc = '/audio/Silence.ogg';
 
 populateDivsWithLoops = function() {
   for(var i = 0; i < 8; i++) {
