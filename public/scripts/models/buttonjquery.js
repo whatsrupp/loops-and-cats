@@ -1,15 +1,15 @@
 $(document).ready(function() {
 
-  $('#recButton').addClass("notRec");
+  // $('#recButton').addClass("notRec");
 
-  $('#recButton').click(function(){
-  	if($('#recButton').hasClass('notRec')){
-  		$('#recButton').removeClass("notRec");
-  		$('#recButton').addClass("Rec");
+  $('#recording-button').click(function(){
+  	if($('#recording-button').hasClass('notRec')){
+  		$('#recording-button').removeClass("notRec");
+  		$('#recording-button').addClass("Rec");
   	}
   	else{
-  		$('#recButton').removeClass("Rec");
-  		$('#recButton').addClass("notRec");
+  		$('#recording-button').removeClass("Rec");
+  		$('#recording-button').addClass("notRec");
   	}
-  });	
+  });
 })
