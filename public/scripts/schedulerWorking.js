@@ -12,6 +12,7 @@ var notesInQueue = [];
 var timerWorker = null;
 var testBuffer = null;
 var isRecording = false;
+var metronomeOn = false;
 
 function nextNote() {
   var secondsPerBeat = 60.0 / tempo;
@@ -24,16 +25,16 @@ function nextNote() {
 }
 
 function scheduleNote (beatNumber, time) {
-  notesInQueue.push({note: beatNumber, time: time});
 
-  loadOscillator(beatNumber);
-  cueOscillator(beatNumber,time)
+  if (metronomeOn) {
+    loadOscillator(beatNumber);
+    cueOscillator(beatNumber,time)
+  }
 
   if (beatNumber == 0 && isRecording == true){
     var timeNow = audioContext.currentTime;
     var timeRecordingShouldStart = time;
     var timeUntilRecording = timeRecordingShouldStart - timeNow;
-
     setTimeout(function(){activateRecording()}, timeUntilRecording);
     isRecording = false;
   }
@@ -44,7 +45,6 @@ function scheduleNote (beatNumber, time) {
       playSound(testBuffer, time)
     }
   }
-
 
 }
 
@@ -112,6 +112,12 @@ function init() {
   recordingButton.onclick = function() {
     isRecording = !isRecording
   };
+
+  var metronomeButton = document.getElementById('metronomeButton');
+  metronomeButton.onclick = function() {
+    metronomeOn = !metronomeOn
+  }
+
   play();
 }
 
