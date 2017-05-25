@@ -11,6 +11,7 @@ var noteLength = 0.05;
 var notesInQueue = [];
 var timerWorker = null;
 var testBuffer = null;
+var isRecording = false;
 
 function nextNote() {
   var secondsPerBeat = 60.0 / tempo;
@@ -28,15 +29,23 @@ function scheduleNote (beatNumber, time) {
   var osc = audioContext.createOscillator();
   osc.connect (audioContext.destination);
   if (beatNumber == 0) {
-    osc.frequency = 880.0;
+    osc.frequency.value = 880.0;
   } else {
     osc.frequency.value = 440.0;
   }
 
-  if (beatNumber == 0){
-    loadTestSound('/audio/1234.ogg')
-    playSound(testBuffer, time)
+  if (beatNumber == 0 && isRecording == true){
+    var timeNow = audioContext.currentTime;
+    var timeRecordingShouldStart = time;
+    var timeUntilRecording = timeRecordingShouldStart - timeNow;
+    setTimeout(function(){activateRecording()}, timeUntilRecording);
+    isRecording = false;
   }
+
+  // if (beatNumber == 0){
+  //   loadTestSound('/audio/1234.ogg')
+  //   playSound(testBuffer, time)
+  // }
 
   osc.start(time);
   osc.stop(time + noteLength);
@@ -99,6 +108,12 @@ function init() {
   };
 
   timerWorker.postMessage({"interval":lookahead})
+
+  var recordingButton = document.getElementById('recording-button');
+  recordingButton.onclick = function() {
+    isRecording = !isRecording
+  };
+  play();
 }
 
 window.addEventListener('load', init);

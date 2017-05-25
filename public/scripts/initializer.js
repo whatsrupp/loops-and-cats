@@ -1,6 +1,6 @@
 function init() {
-  audioContext = new AudioContext();
-  timerWorker = new Worker("/scripts/masterBeater.js")
+  var audioContext = new AudioContext();
+  var timerWorker = new Worker("/scripts/masterBeater.js")
 
   timerWorker.onmessage = function(e) {
     if (e.data == "tick") {
@@ -10,7 +10,10 @@ function init() {
     };
   };
 
+
   timerWorker.postMessage({"interval":lookahead})
+
+  play()
 }
 
 window.addEventListener('load', init);
