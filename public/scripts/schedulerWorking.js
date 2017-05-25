@@ -25,26 +25,16 @@ function nextNote() {
 }
 
 function scheduleNote (beatNumber, time) {
-  notesInQueue.push({note: beatNumber, time: time});
-  osc = audioContext.createOscillator();
-
-  osc.connect (audioContext.destination);
-  if (beatNumber == 0) {
-    osc.frequency.value = 880.0;
-  } else {
-    osc.frequency.value = 440.0;
-  }
 
   if (metronomeOn) {
-    osc.start(nextNoteTime);
-    osc.stop(nextNoteTime + noteLength);
+    loadOscillator(beatNumber);
+    cueOscillator(beatNumber,time)
   }
 
   if (beatNumber == 0 && isRecording == true){
     var timeNow = audioContext.currentTime;
     var timeRecordingShouldStart = time;
     var timeUntilRecording = timeRecordingShouldStart - timeNow;
-
     setTimeout(function(){activateRecording()}, timeUntilRecording);
     isRecording = false;
   }
@@ -55,6 +45,7 @@ function scheduleNote (beatNumber, time) {
       playSound(testBuffer, time)
     }
   }
+
 }
 
 function scheduler() {
