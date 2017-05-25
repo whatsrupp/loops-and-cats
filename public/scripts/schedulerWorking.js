@@ -11,8 +11,8 @@ var noteLength = 0.05;
 var notesInQueue = [];
 var timerWorker = null;
 var testBuffer = null;
-var isRecording = false;
 var metronomeOn = false;
+var isRecording = false;
 
 function nextNote() {
   var secondsPerBeat = 60.0 / tempo;
@@ -120,5 +120,6 @@ function init() {
 
   play();
 }
+
 
 window.addEventListener('load', init);
