@@ -1,6 +1,6 @@
 (function(exports){
 
-  function waveMaker(){
+  function WaveMaker(){
     this.createWave = function(url){
       var wave = WaveSurfer.create({
         container: '#waveform1',
@@ -12,5 +12,5 @@
     }
   }
 
-  exports.waveMaker = waveMaker;
+  exports.WaveMaker = WaveMaker;
 })(this)

@@ -42,8 +42,13 @@ describe('Scheduler Model', function(){
     });
   });
 
-  describe('scheduler', function(){
+  describe('updatesEveryTick', function(){
+    it('calls schedule beat', function(){
 
+    });
+    it('calls updatePlayState', function(){
+
+    });
   });
 
   describe('updatePlayState', function(){
