@@ -8,6 +8,8 @@
     console.log("The following getUserMedia error occured: " + err + ". That is not nice, eh?");
   }
   onSuccess = function(stream) {
+    $('#recording-button').removeClass("notRec");
+    $('#recording-button').addClass("Rec");
     var mediaRecorder = new MediaRecorder(stream);
     var chunks = [];
     mediaRecorder.start();
@@ -21,6 +23,8 @@
     stopRecording = function() {
       mediaRecorder.stop();
       console.log(mediaRecorder.state); // logs 'inactive' in the console
+      $('#recording-button').removeClass("Rec");
+      $('#recording-button').addClass("notRec");
     };
 
     // stops recording and currently pushes to urls array
