@@ -27,7 +27,7 @@ function nextNote() {
 function scheduleNote (beatNumber, time) {
 
   if (metronomeOn) {
-    loadOscillator(beatNumber);
+    bufferOscillator(beatNumber);
     cueOscillator(beatNumber,time)
   }
 
@@ -40,9 +40,9 @@ function scheduleNote (beatNumber, time) {
   }
 
   if (beatNumber == 0){
-    if (loopFactory.loops[0]) {
-      loadTestSound(loopFactory.loops[0].url)
-      playSound(testBuffer, time)
+    if(loopFactory.isNotEmpty()){
+      bufferTrack()
+      cueTrack(time)
     }
   }
 
@@ -111,6 +111,11 @@ function init() {
   var recordingButton = document.getElementById('recording-button');
   recordingButton.onclick = function() {
     isRecording = !isRecording
+  };
+
+  var stopBeaterButton = document.getElementById('stop-beater-button');
+  stopBeaterButton.onclick = function() {
+    play()
   };
 
   var metronomeButton = document.getElementById('metronomeButton');
