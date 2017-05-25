@@ -1,12 +1,13 @@
 'use strict';
 
 var assert = require('assert')
-var Metronome = require('../../public/scripts/metronome.js')
+var SchedulerModule = require('../../public/scripts/models/scheduler.js')
+var Scheduler = SchedulerModule.Scheduler
 var chai = require("chai")
 var sinonChai = require("sinon-chai")
 chai.use(sinonChai)
 
-describe('Metronome Model', function(){
+describe('Scheduler Model', function(){
 
   describe('variables', function(){
   });
@@ -17,14 +18,14 @@ describe('Metronome Model', function(){
 
   describe('scheduleBeat', function(){
     it('updates beatsInQueue', function(){
-      var metronome = new Metronome.Metronome();
+      var scheduler = new Scheduler();
       var beat = 0
       var time = 0
       var expectedBeatObject = {beat: beat, time: time}
 
-      metronome.scheduleBeat()
-      assert.equal(metronome.beatsInQueue[0].time, expectedBeatObject.time)
-      assert.equal(metronome.beatsInQueue[0].beat, expectedBeatObject.beat)
+      scheduler.scheduleBeat()
+      assert.equal(scheduler.beatsInQueue[0].time, expectedBeatObject.time)
+      assert.equal(scheduler.beatsInQueue[0].beat, expectedBeatObject.beat)
     });
 
     it('calls load audio file', function(){
@@ -82,30 +83,30 @@ describe('Metronome Model', function(){
 
   describe('nextNote', function(){
     it('increments the beat', function(){
-      var metronome = new Metronome.Metronome();
-      var initialBeatTime = metronome.nextBeatTime;
-      metronome.nextBeatInfoUpdate();
-      var updatedBeatTime = metronome.nextBeatTime;
+      var scheduler = new Scheduler();
+      var initialBeatTime = scheduler.nextBeatTime;
+      scheduler.nextBeatInfoUpdate();
+      var updatedBeatTime = scheduler.nextBeatTime;
       var difference = updatedBeatTime - initialBeatTime;
-      var timePerBeat = 60.0 / metronome.tempo;
+      var timePerBeat = 60.0 / scheduler.tempo;
       assert.equal(difference, timePerBeat)
     });
   });
 
   describe('updateBeatNumber', function() {
     it('it increments beat number', function(){
-      var metronome = new Metronome.Metronome();
-      var initialBeatNumber = metronome.nextBeatNumber
-      metronome.updateBeatNumber();
-      assert.equal(metronome.nextBeatNumber, initialBeatNumber + 1)
+      var scheduler = new Scheduler();
+      var initialBeatNumber = scheduler.nextBeatNumber
+      scheduler.updateBeatNumber();
+      assert.equal(scheduler.nextBeatNumber, initialBeatNumber + 1)
     });
     it('wraps the beat at the end of the bar', function() {
-      var metronome = new Metronome.Metronome();
-      metronome.updateBeatNumber();
-      metronome.updateBeatNumber();
-      metronome.updateBeatNumber();
-      metronome.updateBeatNumber();
-      assert.equal(metronome.nextBeatNumber, 0)
+      var scheduler = new Scheduler();
+      scheduler.updateBeatNumber();
+      scheduler.updateBeatNumber();
+      scheduler.updateBeatNumber();
+      scheduler.updateBeatNumber();
+      assert.equal(scheduler.nextBeatNumber, 0)
     })
   });
 });

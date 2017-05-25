@@ -88,7 +88,7 @@ function playSound(buffer,time){
 
 function init() {
   audioContext = new AudioContext();
-  timerWorker = new Worker("/scripts/metronomeWorker.js")
+  timerWorker = new Worker("/scripts/masterBeater.js")
 
   timerWorker.onmessage = function(e) {
     if (e.data == "tick") {

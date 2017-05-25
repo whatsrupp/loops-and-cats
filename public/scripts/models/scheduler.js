@@ -1,6 +1,6 @@
 (function(exports) {
 
-function Metronome() {
+function Scheduler() {
 
   this.nextBeatNumber = 0
   this.tempo = 120
@@ -34,5 +34,5 @@ function Metronome() {
 
 }
 
-exports.Metronome = Metronome;
+exports.Scheduler = Scheduler;
 })(this);
