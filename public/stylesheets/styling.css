@@ -22,7 +22,7 @@ body {
 .Rec{
 	animation-name: pulse;
 	animation-duration: 0.5s;
-	animation-iteration-count: 4;
+	animation-iteration-count: infinite;
 	animation-timing-function: linear;
   width: 35px;
 	height: 35px;

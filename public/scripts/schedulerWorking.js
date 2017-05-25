@@ -12,6 +12,7 @@ var notesInQueue = [];
 var timerWorker = null;
 var testBuffer = null;
 var isRecording = false;
+var metronomeOn = false;
 
 function nextNote() {
   var secondsPerBeat = 60.0 / tempo;
@@ -25,13 +26,18 @@ function nextNote() {
 
 function scheduleNote (beatNumber, time) {
   notesInQueue.push({note: beatNumber, time: time});
+  osc = audioContext.createOscillator();
 
-  var osc = audioContext.createOscillator();
   osc.connect (audioContext.destination);
   if (beatNumber == 0) {
     osc.frequency.value = 880.0;
   } else {
     osc.frequency.value = 440.0;
+  }
+
+  if (metronomeOn) {
+    osc.start(nextNoteTime);
+    osc.stop(nextNoteTime + noteLength);
   }
 
   if (beatNumber == 0 && isRecording == true){
@@ -49,9 +55,6 @@ function scheduleNote (beatNumber, time) {
       playSound(testBuffer, time)
     }
   }
-
-  osc.start(time);
-  osc.stop(time + noteLength);
 }
 
 function scheduler() {
@@ -118,6 +121,12 @@ function init() {
   recordingButton.onclick = function() {
     isRecording = !isRecording
   };
+
+  var metronomeButton = document.getElementById('metronomeButton');
+  metronomeButton.onclick = function() {
+    metronomeOn = !metronomeOn
+  }
+
   play();
 }
 
