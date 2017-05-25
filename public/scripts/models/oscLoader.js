@@ -3,7 +3,7 @@
   var oscillator = null;
   var OscillatorPlayLength = 0.05;
 
-  function loadOscillator(nextBeatNumber){
+  function bufferOscillator(nextBeatNumber){
     var HighFrequencyHz = 880.0;
     var LowFrequencyHz = 440.0;
 
@@ -26,7 +26,7 @@
     return nextBeatNumber == 0
   }
 
-  exports.loadOscillator = loadOscillator
+  exports.bufferOscillator = bufferOscillator
   exports.cueOscillator = cueOscillator
 
 })(this)
