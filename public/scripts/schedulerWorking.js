@@ -38,14 +38,17 @@ function scheduleNote (beatNumber, time) {
     var timeNow = audioContext.currentTime;
     var timeRecordingShouldStart = time;
     var timeUntilRecording = timeRecordingShouldStart - timeNow;
+
     setTimeout(function(){activateRecording()}, timeUntilRecording);
     isRecording = false;
   }
 
-  // if (beatNumber == 0){
-  //   loadTestSound('/audio/1234.ogg')
-  //   playSound(testBuffer, time)
-  // }
+  if (beatNumber == 0){
+    if (loopFactory.loops[0]) {
+      loadTestSound(loopFactory.loops[0].url)
+      playSound(testBuffer, time)
+    }
+  }
 
   osc.start(time);
   osc.stop(time + noteLength);
