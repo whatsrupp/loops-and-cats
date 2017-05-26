@@ -1,3 +1,4 @@
+var blankAudio = 'audio/Silence.ogg'
 var audioContext = null;
 var isPlaying = false;
 var current4thNote;
@@ -91,7 +92,9 @@ function init() {
 
   var recordingButton = document.getElementById('recording-button');
   recordingButton.onclick = function() {
-    isRecording = !isRecording
+    if (loopFactory.isFull()){
+      alert("No free loops: please delete one and try again!")
+    } else {isRecording = !isRecording}
   };
 
   var stopBeaterButton = document.getElementById('stop-beater-button');
@@ -103,7 +106,13 @@ function init() {
   metronomeButton.onclick = function() {
     metronomeOn = !metronomeOn
   }
-
+  var delButtons = document.getElementsByClassName('deleteButton')
+  for(var i = 0; i < delButtons.length; i++){
+    delButtons[i].onclick = function() {
+      var index = (Number(this.id.split('deleteButton-')[1]) - 1)
+      loopFactory.loops[index].updateURL(blankAudio)
+    }
+  }
   play();
 }
 
