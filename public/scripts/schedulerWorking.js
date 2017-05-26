@@ -89,9 +89,7 @@ function init() {
   recordingButton.onclick = function() {
     isRecording = !isRecording;
     if(isRecording){
-      console.log(recordingButton.disabled);
       recordingButton.disabled = true;
-      console.log(recordingButton.disabled)
     }
   };
 
