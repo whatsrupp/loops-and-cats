@@ -23,8 +23,7 @@ function secondsPerBar(){
 }
 
 function nextNote() {
-  var secondsPerBeat = 60.0 / tempo;
-  nextNoteTime += secondsPerBeat;
+  nextNoteTime += secondsPerBeat();
 
   current4thNote++;
   if (current4thNote == 4) {
