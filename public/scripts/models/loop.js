@@ -11,6 +11,11 @@
     this.updateIsActive = function() {
       this.isActive = !this.isActive;
     }
+
+    this.updateURL = function(url) {
+      this.url = url
+      this.waveform.load(url)
+    }
   }
 
   exports.Loop = Loop;

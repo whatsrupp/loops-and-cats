@@ -1,3 +1,4 @@
+var blankAudio = 'audio/Silence.ogg'
 var audioContext = null;
 var isPlaying = false;
 var current4thNote;
@@ -101,7 +102,13 @@ function init() {
   metronomeButton.onclick = function() {
     metronomeOn = !metronomeOn
   }
-
+  var delButtons = document.getElementsByClassName('deleteButton')
+  for(var i = 0; i < delButtons.length; i++){
+    delButtons[i].onclick = function() {
+      var index = (Number(this.id.split('deleteButton-')[1]) - 1)
+      loopFactory.loops[index].updateURL(blankAudio)
+    }
+  }
   play();
 }
 
