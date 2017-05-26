@@ -1,3 +1,4 @@
+var blankAudio = 'audio/Silence.ogg'
 var audioContext = null;
 var isPlaying = false;
 var current4thNote;
@@ -9,9 +10,21 @@ var timerWorker = null;
 var metronomeOn = false;
 var isRecording = false;
 
+function secondsPerBeat(){
+  var secondsInMinute = 60.0
+  var beatsPerMinute = tempo
+  return secondsInMinute/beatsPerMinute;
+}
+
+function secondsPerBar(){
+  var seconds = secondsPerBeat()
+  var secondsPerBar = seconds * 4
+  return secondsPerBar
+  // var seconds = parseFloat((secondsPerBeat(tempo) * 4).toFixed(16))
+}
+
 function nextNote() {
-  var secondsPerBeat = 60.0 / tempo;
-  nextNoteTime += secondsPerBeat;
+  nextNoteTime += secondsPerBeat();
 
   current4thNote++;
   if (current4thNote == 4) {
@@ -19,9 +32,6 @@ function nextNote() {
   }
 }
 
-function testFunction (){
-  console.log('Test');
-}
 
 function scheduleNote (beatNumber, time) {
 
@@ -30,20 +40,17 @@ function scheduleNote (beatNumber, time) {
     cueOscillator(beatNumber,time);
   }
 
-  cueEvent(beatNumber, time, testFunction);
-
   if (beatNumber == 0){
     if (isRecording){
-      var timeNow = audioContext.currentTime;
-      var timeRecordingShouldStart = time;
-      var timeUntilRecording = timeRecordingShouldStart - timeNow;
-      setTimeout(function(){activateRecording()}, timeUntilRecording);
+      cueEvent(beatNumber, time, activateRecording)
+      // cueEvent(beatNumber, time + secondsPerBar(), stopRecording)
+      cueEvent(beatNumber, (time + secondsPerBar()), stopRecording)
+
       isRecording = false;
     }
 
     if(loopFactory.isNotEmpty()){
-      bufferTrack()
-      cueTrack(time)
+      cueActiveTracks(time)
     }
   }
 }
@@ -72,8 +79,6 @@ function play() {
 function init() {
   audioContext = new AudioContext();
   timerWorker = new Worker("/scripts/masterBeater.js")
-  // loopFactory = new LoopFactory();
-  // waveMaker = new WaveMaker();
 
   timerWorker.onmessage = function(e) {
     if (e.data == "tick") {
@@ -87,8 +92,11 @@ function init() {
 
   var recordingButton = document.getElementById('recording-button');
   recordingButton.onclick = function() {
-    isRecording = !isRecording;
-    if(isRecording){
+    
+    if (loopFactory.isFull()){
+      alert("No free loops: please delete one and try again!")
+    } else {
+      isRecording = !isRecording
       recordingButton.disabled = true;
     }
   };
@@ -102,7 +110,13 @@ function init() {
   metronomeButton.onclick = function() {
     metronomeOn = !metronomeOn
   }
-
+  var delButtons = document.getElementsByClassName('deleteButton')
+  for(var i = 0; i < delButtons.length; i++){
+    delButtons[i].onclick = function() {
+      var index = (Number(this.id.split('deleteButton-')[1]) - 1)
+      loopFactory.loops[index].updateURL(blankAudio)
+    }
+  }
   play();
 }
 

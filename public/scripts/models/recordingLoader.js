@@ -1,6 +1,11 @@
 (function(exports){
   var buffer = null;
 
+  function cueActiveTracks(time){
+    bufferTrack();
+    cueTrack(time);
+  }
+
   function cueTrack(time){
     var source = audioContext.createBufferSource();
     source.buffer = buffer;
@@ -24,6 +29,5 @@
     request.send();
   }
 
-  exports.bufferTrack = bufferTrack
-  exports.cueTrack = cueTrack
+  exports.cueActiveTracks = cueActiveTracks
 })(this)
