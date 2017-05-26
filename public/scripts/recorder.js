@@ -15,7 +15,6 @@
     var chunks = [];
     mediaRecorder.start();
     console.log(mediaRecorder.state); // logs 'recording' in the console
-    setTimeout(function(){stopRecording()}, 2000)
 
     mediaRecorder.ondataavailable = function(e) {
       chunks.push(e.data);
@@ -28,7 +27,7 @@
       chunks = [];
       var audioURL = window.URL.createObjectURL(blob);
       loopFactory.updateLoops(audioURL);
-      loopFactory.spinHeads();
+      spinningHeads.startSpin(loopFactory);
     };
   }
   stopRecording = function() {
@@ -36,6 +35,7 @@
     console.log(mediaRecorder.state); // logs 'inactive' in the console
     $('#recording-button').removeClass("Rec");
     $('#recording-button').addClass("notRec");
+    document.getElementById('recording-button').disabled = false;
   };
 
   activateRecording = function(){

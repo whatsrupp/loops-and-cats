@@ -8,7 +8,7 @@
     }
 
     this.isNotEmpty = function(){
-      return this.loops.length > 0;
+      return (this.fullTrackCount() > 0);
     }
 
     this.updateLoops = function(uRL){
@@ -24,22 +24,19 @@
     }
 
     this.isFull = function() {
+      return this.fullTrackCount() == 8;
+    };
+
+    this.fullTrackCount = function() {
       var count = 0;
       for(var i = 0; i < 8; i++){
         if(this.loops[i].url != 'audio/Silence.ogg'){
           count += 1;
         };
       };
-      if (count == 8) {return true};
+      return count
     };
-
-    this.spinHeads = function(){
-      if(this.loops[0].url !== 'audio/Silence.ogg') {
-        for(var i = 1; i <= 5; i++) {
-          $('#image' + i.toString()).removeClass("headsoff").addClass("headson");
-        }
-      }
-    }
   }
+
   exports.LoopFactory = LoopFactory;
 })(this);
