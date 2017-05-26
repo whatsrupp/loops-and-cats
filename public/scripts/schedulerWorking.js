@@ -87,7 +87,9 @@ function init() {
 
   var recordingButton = document.getElementById('recording-button');
   recordingButton.onclick = function() {
-    isRecording = !isRecording
+    if (loopFactory.isFull()){
+      alert("No free loops: please delete one and try again!")
+    } else {isRecording = !isRecording}
   };
 
   var stopBeaterButton = document.getElementById('stop-beater-button');
