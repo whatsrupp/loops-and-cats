@@ -4,27 +4,21 @@
 
   var urls = [];
   var mediaType = { audio: true}
+  var mediaRecorder = null;
   onError = function(err) {
     console.log("The following getUserMedia error occured: " + err + ". That is not nice, eh?");
   }
   onSuccess = function(stream) {
     $('#recording-button').removeClass("notRec");
     $('#recording-button').addClass("Rec");
-    var mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder = new MediaRecorder(stream);
     var chunks = [];
     mediaRecorder.start();
     console.log(mediaRecorder.state); // logs 'recording' in the console
-    setTimeout(function(){stopRecording()}, 2000)
+    // setTimeout(function(){stopRecording()}, 2000)
 
     mediaRecorder.ondataavailable = function(e) {
       chunks.push(e.data);
-    };
-
-    stopRecording = function() {
-      mediaRecorder.stop();
-      console.log(mediaRecorder.state); // logs 'inactive' in the console
-      $('#recording-button').removeClass("Rec");
-      $('#recording-button').addClass("notRec");
     };
 
     // stops recording and currently pushes to urls array
@@ -33,10 +27,16 @@
       console.log(chunks);
       chunks = [];
       var audioURL = window.URL.createObjectURL(blob);
-      // debugger;
       loopFactory.updateLoops(audioURL);
     };
   }
+
+  stopRecording = function() {
+    mediaRecorder.stop();
+    console.log(mediaRecorder.state); // logs 'inactive' in the console
+    $('#recording-button').removeClass("Rec");
+    $('#recording-button').addClass("notRec");
+  };
 
   activateRecording = function(){
     if (navigator.getUserMedia) {
@@ -46,5 +46,6 @@
       console.log("getUserMedia not supported on your browser");
     }
   }
-  exports.activateRecording = activateRecording
+  exports.activateRecording = activateRecording;
+  exports.stopRecording = stopRecording;
 })(this)
