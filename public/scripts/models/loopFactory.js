@@ -10,6 +10,18 @@
     this.isNotEmpty = function(){
       return this.loops.length > 0;
     }
+
+    this.updateLoops = function(uRL){
+      var index;
+      for(var i = 0; i < 8; i++){
+        if(this.loops[i].url === 'audio/Silence.ogg'){
+          index = i;
+          break
+        }
+      }
+      this.loops[index].url = uRL;
+      this.loops[index].waveform.load(uRL);
+    }
   }
 
 
