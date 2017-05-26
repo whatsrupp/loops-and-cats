@@ -12,7 +12,6 @@
     var audioUrl = loopFactory.loops[0].url
     var request = new XMLHttpRequest();
 
-
     request.open('GET', audioUrl, true);
     request.responseType = 'arraybuffer';
     request.onload = function(){

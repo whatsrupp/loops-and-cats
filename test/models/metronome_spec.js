@@ -17,66 +17,56 @@ describe('Scheduler Model', function(){
   });
 
   describe('scheduleBeat', function(){
-    it('updates beatsInQueue', function(){
-      var scheduler = new Scheduler();
-      var beat = 0
-      var time = 0
-      var expectedBeatObject = {beat: beat, time: time}
 
-      scheduler.scheduleBeat()
-      assert.equal(scheduler.beatsInQueue[0].time, expectedBeatObject.time)
-      assert.equal(scheduler.beatsInQueue[0].beat, expectedBeatObject.beat)
-    });
-
-    it('calls load audio file', function(){
-
-    });
-    it('calls load oscillator', function(){
-
-    });
-    it('calls play oscillator', function(){
-
-    });
-    it('calls play audiofile', function(){
-
-    });
+    // it('calls load audio file', function(){
+    //
+    // });
+    // it('calls load oscillator', function(){
+    //
+    // });
+    // it('calls play oscillator', function(){
+    //
+    // });
+    // it('calls play audiofile', function(){
+    //
+    // });
   });
 
   describe('updatesEveryTick', function(){
-    it('calls schedule beat', function(){
-
-    });
-    it('calls updatePlayState', function(){
-
-    });
+    // it('calls schedule beat', function(){
+    //
+    // });
+    // it('calls updatePlayState', function(){
+    //
+    // });
   });
 
   describe('updatePlayState', function(){
 
     describe('context: is playing', function(){
-      it('changes to not playing', function(){
-
-      });
-
-      it('resets the beat number', function(){
-
-      });
-      it('resets the next note time', function(){
-
-      });
-      it('sends a stop message to the timer worker', function(){
-
-      });
+      // it('changes to not playing', function(){
+      //
+      // });
+      //
+      // it('resets the beat number', function(){
+      //
+      // });
+      // it('resets the next note time', function(){
+      //
+      // });
+      // it('sends a stop message to the timer worker', function(){
+      //
+      // });
 
     });
 
     describe('context: is not playing', function(){
-      it('changes to playing', function(){
-
-      });
-      it('sends a start message to the timer worker', function(){
-
-      });
+      // it('changes to playing', function(){
+      //
+      // });
+      // it('sends a start message to the timer worker', function(){
+      //
+      // });
     });
 
 

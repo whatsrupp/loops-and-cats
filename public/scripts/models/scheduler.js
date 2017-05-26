@@ -5,7 +5,6 @@ function Scheduler() {
   this.nextBeatNumber = 0
   this.tempo = 120
   this.nextBeatTime = 0.0
-  this.beatsInQueue = []
 
 
   this.updateBeatNumber = function() {
@@ -26,7 +25,6 @@ function Scheduler() {
       beat: this.nextBeatNumber,
       time: this.nextBeatTime
     };
-    this.beatsInQueue.push(beatObject);
   }
 
   this.playAudioFile = function (buffer, time){

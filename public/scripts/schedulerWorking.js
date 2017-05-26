@@ -1,16 +1,11 @@
 var audioContext = null;
 var isPlaying = false;
-var startTime;
 var current4thNote;
 var tempo = 120.0;
 var lookahead = 25.0;
 var scheduleAheadTime = 0.1;
 var nextNoteTime = 0.0;
-var noteResolution = 2; // 0 = 16th, 1 = 8th, 2 = 4th
-var noteLength = 0.05;
-var notesInQueue = [];
 var timerWorker = null;
-var testBuffer = null;
 var metronomeOn = false;
 var isRecording = false;
 
@@ -24,28 +19,33 @@ function nextNote() {
   }
 }
 
+function testFunction (){
+  console.log('Test');
+}
+
 function scheduleNote (beatNumber, time) {
 
   if (metronomeOn) {
     bufferOscillator(beatNumber);
-    cueOscillator(beatNumber,time)
+    cueOscillator(beatNumber,time);
   }
 
-  if (beatNumber == 0 && isRecording == true){
-    var timeNow = audioContext.currentTime;
-    var timeRecordingShouldStart = time;
-    var timeUntilRecording = timeRecordingShouldStart - timeNow;
-    setTimeout(function(){activateRecording()}, timeUntilRecording);
-    isRecording = false;
-  }
+  cueEvent(beatNumber, time, testFunction);
 
   if (beatNumber == 0){
+    if (isRecording){
+      var timeNow = audioContext.currentTime;
+      var timeRecordingShouldStart = time;
+      var timeUntilRecording = timeRecordingShouldStart - timeNow;
+      setTimeout(function(){activateRecording()}, timeUntilRecording);
+      isRecording = false;
+    }
+
     if(loopFactory.isNotEmpty()){
       bufferTrack()
       cueTrack(time)
     }
   }
-
 }
 
 function scheduler() {
@@ -67,29 +67,6 @@ function play() {
     timerWorker.postMessage('stop');
     return 'play';
   }
-}
-
-function loadTestSound(src){
-  var request = new XMLHttpRequest();
-
-
-  request.open('GET', src, true);
-  request.responseType = 'arraybuffer';
-  request.onload = function(){
-    audioContext.decodeAudioData(request.response, function(buffer){
-      testBuffer = buffer;
-    }, function (){
-      console.log ('Error')
-    });
-  }
-  request.send();
-}
-
-function playSound(buffer,time){
-  var source = audioContext.createBufferSource();
-  source.buffer = buffer;
-  source.connect(audioContext.destination);
-  source.start(time)
 }
 
 function init() {
