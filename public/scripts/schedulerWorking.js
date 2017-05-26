@@ -115,6 +115,7 @@ function init() {
     delButtons[i].onclick = function() {
       var index = (Number(this.id.split('deleteButton-')[1]) - 1)
       loopFactory.loops[index].updateURL(blankAudio)
+      spinningHeads.stopSpin(loopFactory);
     }
   }
   play();

@@ -53,7 +53,7 @@ body {
 	}
 }
 
-.image1 {
+.headson {
     position: absolute;
     top: 10%;
     left: 80%;
@@ -65,52 +65,33 @@ body {
     animation:spin 2s linear infinite;
 }
 
-.image2 {
+.headsoff {
     position: absolute;
     top: 10%;
+    left: 80%;
+    width: 100px;
+    height: 100px;
+    margin:-60px 0 0 -60px;
+}
+
+#image1 {
+    left: 80%;
+}
+
+#image2 {
     left: 90%;
-    width: 100px;
-    height: 100px;
-    margin:-60px 0 0 -60px;
-    -webkit-animation:spin 2s linear infinite;
-    -moz-animation:spin 2s linear infinite;
-    animation:spin 2s linear infinite;
 }
 
-.image3 {
-    position: absolute;
-    top: 10%;
+#image3 {
     left: 70%;
-    width: 100px;
-    height: 100px;
-    margin:-60px 0 0 -60px;
-    -webkit-animation:spin 2s linear infinite;
-    -moz-animation:spin 2s linear infinite;
-    animation:spin 2s linear infinite;
 }
 
-.image4 {
-    position: absolute;
-    top: 10%;
+#image4 {
     left: 60%;
-    width: 100px;
-    height: 100px;
-    margin:-60px 0 0 -60px;
-    -webkit-animation:spin 2s linear infinite;
-    -moz-animation:spin 2s linear infinite;
-    animation:spin 2s linear infinite;
 }
 
-.image5 {
-    position: absolute;
-    top: 10%;
+#image5 {
     left: 50%;
-    width: 100px;
-    height: 100px;
-    margin:-60px 0 0 -60px;
-    -webkit-animation:spin 2s linear infinite;
-    -moz-animation:spin 2s linear infinite;
-    animation:spin 2s linear infinite;
 }
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
