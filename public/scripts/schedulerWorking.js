@@ -50,7 +50,7 @@ function scheduleNote (beatNumber, time) {
     }
 
     if(loopFactory.isNotEmpty()){
-      cueActiveTracks(time)
+      cueActiveTracks(beatNumber,time)
     }
   }
 }

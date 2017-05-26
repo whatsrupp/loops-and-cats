@@ -1,9 +1,25 @@
 (function(exports){
   var buffer = null;
 
-  function cueActiveTracks(time){
-    bufferTrack();
-    cueTrack(time);
+  function cueActiveTracks(beatNumber, time){
+    // bufferTrack();
+    // cueTrack(time);
+
+    // var loops = loopFactory.loops
+
+    // for (i = 0; i < loops.length; i++) {
+      function playWaveForms(){
+        loopFactory.loops[1].waveform.play()
+        loopFactory.loops[2].waveform.play()
+        loopFactory.loops[3].waveform.play()
+        loopFactory.loops[4].waveform.play()
+        loopFactory.loops[5].waveform.play()
+        loopFactory.loops[6].waveform.play()
+        loopFactory.loops[7].waveform.play()
+        loopFactory.loops[0].waveform.play()
+      }
+      cueEvent(beatNumber, time, playWaveForms)
+    // }
   }
 
   function cueTrack(time){
