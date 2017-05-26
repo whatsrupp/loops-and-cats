@@ -15,11 +15,12 @@
     var chunks = [];
     mediaRecorder.start();
     console.log(mediaRecorder.state); // logs 'recording' in the console
-    // setTimeout(function(){stopRecording()}, 2000)
+    setTimeout(function(){stopRecording()}, 2000)
 
     mediaRecorder.ondataavailable = function(e) {
       chunks.push(e.data);
     };
+
 
     // stops recording and currently pushes to urls array
     mediaRecorder.onstop = function(e) {
@@ -30,7 +31,6 @@
       loopFactory.updateLoops(audioURL);
     };
   }
-
   stopRecording = function() {
     mediaRecorder.stop();
     console.log(mediaRecorder.state); // logs 'inactive' in the console

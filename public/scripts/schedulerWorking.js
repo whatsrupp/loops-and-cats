@@ -9,14 +9,17 @@ var timerWorker = null;
 var metronomeOn = false;
 var isRecording = false;
 
-function secondsPerBeat(tempo){
+function secondsPerBeat(){
   var secondsInMinute = 60.0
   var beatsPerMinute = tempo
   return secondsInMinute/beatsPerMinute;
 }
 
-function secondsPerBar(tempo){
-  return secondsPerBeat(tempo) * 4.0
+function secondsPerBar(){
+  var seconds = secondsPerBeat()
+  var secondsPerBar = seconds * 4
+  return secondsPerBar
+  // var seconds = parseFloat((secondsPerBeat(tempo) * 4).toFixed(16))
 }
 
 function nextNote() {
@@ -39,9 +42,10 @@ function scheduleNote (beatNumber, time) {
 
   if (beatNumber == 0){
     if (isRecording){
-
       cueEvent(beatNumber, time, activateRecording)
-      cueEvent(beatNumber, time + secondsPerBar(), stopRecording)
+      // cueEvent(beatNumber, time + secondsPerBar(), stopRecording)
+      cueEvent(beatNumber, (time + secondsPerBar()), stopRecording)
+
       isRecording = false;
     }
 
