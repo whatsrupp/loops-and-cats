@@ -21,7 +21,6 @@
       chunks.push(e.data);
     };
 
-
     // stops recording and currently pushes to urls array
     mediaRecorder.onstop = function(e) {
       var blob = new Blob(chunks, {'type': 'audio/ogg; codecs=opus'});
