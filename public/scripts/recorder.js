@@ -15,7 +15,6 @@
     var chunks = [];
     mediaRecorder.start();
     console.log(mediaRecorder.state); // logs 'recording' in the console
-    setTimeout(function(){stopRecording()}, 2000)
 
     mediaRecorder.ondataavailable = function(e) {
       chunks.push(e.data);
