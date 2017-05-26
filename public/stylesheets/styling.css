@@ -53,7 +53,7 @@ body {
 	}
 }
 
-.heads {
+.headson {
     position: absolute;
     top: 10%;
     left: 80%;
@@ -63,6 +63,15 @@ body {
     -webkit-animation:spin 2s linear infinite;
     -moz-animation:spin 2s linear infinite;
     animation:spin 2s linear infinite;
+}
+
+.headsoff {
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    width: 100px;
+    height: 100px;
+    margin:-60px 0 0 -60px;
 }
 
 #image1 {

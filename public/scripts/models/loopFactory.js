@@ -32,6 +32,14 @@
       };
       if (count == 8) {return true};
     };
+
+    this.spinHeads = function(){
+      if(this.loops[0].url !== 'audio/Silence.ogg') {
+        for(var i = 1; i <= 5; i++) {
+          $('#image' + i.toString()).removeClass("headsoff").addClass("headson");
+        }
+      }
+    }
   }
   exports.LoopFactory = LoopFactory;
 })(this);
