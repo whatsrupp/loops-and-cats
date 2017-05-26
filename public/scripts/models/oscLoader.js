@@ -16,10 +16,6 @@
       oscillator.frequency.value = LowFrequencyHz
     }
 
-    oscillator.onended = function(event) {
-      console.log('Finished')
-    }
-
   }
 
   function cueOscillator(nextBeatNumber, nextBeatTime){
