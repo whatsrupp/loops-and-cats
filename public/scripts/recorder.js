@@ -34,7 +34,7 @@
       chunks = [];
       var audioURL = window.URL.createObjectURL(blob);
       // debugger;
-      loopFactory.create(audioURL);
+      loopFactory.updateLoops(audioURL);
     };
   }
 
