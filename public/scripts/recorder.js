@@ -27,6 +27,7 @@
       chunks = [];
       var audioURL = window.URL.createObjectURL(blob);
       loopFactory.updateLoops(audioURL);
+      spinningHeads.startSpin(loopFactory);
     };
   }
   stopRecording = function() {

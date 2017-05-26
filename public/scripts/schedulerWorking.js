@@ -92,7 +92,7 @@ function init() {
 
   var recordingButton = document.getElementById('recording-button');
   recordingButton.onclick = function() {
-    
+
     if (loopFactory.isFull()){
       alert("No free loops: please delete one and try again!")
     } else {
@@ -115,6 +115,7 @@ function init() {
     delButtons[i].onclick = function() {
       var index = (Number(this.id.split('deleteButton-')[1]) - 1)
       loopFactory.loops[index].updateURL(blankAudio)
+      spinningHeads.stopSpin(loopFactory);
     }
   }
   play();
