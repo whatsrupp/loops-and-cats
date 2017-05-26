@@ -72,8 +72,8 @@ function play() {
 function init() {
   audioContext = new AudioContext();
   timerWorker = new Worker("/scripts/masterBeater.js")
-  loopFactory = new LoopFactory();
-  waveMaker = new WaveMaker();
+  // loopFactory = new LoopFactory();
+  // waveMaker = new WaveMaker();
 
   timerWorker.onmessage = function(e) {
     if (e.data == "tick") {
