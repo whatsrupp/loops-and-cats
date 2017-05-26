@@ -42,8 +42,7 @@ function scheduleNote (beatNumber, time) {
     }
 
     if(loopFactory.isNotEmpty()){
-      bufferTrack()
-      cueTrack(time)
+      cueActiveTracks(time)
     }
   }
 }
