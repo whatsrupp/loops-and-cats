@@ -1,11 +1,23 @@
-waveMaker = new WaveMaker();
-var audioSrc = 'audio/Silence.ogg';
-loopFactory = new LoopFactory(audioSrc, waveMaker, 1);
+(function(exports){
+  var audioSrc = 'audio/Silence.ogg';
 
-populateDivsWithLoops = function() {
-  for(var i = 0; i < 8; i++) {
-    loopFactory.create(audioSrc, i);
+  function init() {
+    initialiseRequiredPrototypes();
+    populateDivsWithLoops();
   }
-};
+  
+  function populateDivsWithLoops () {
+    for(var i = 0; i < 8; i++) {
+      loopFactory.create(audioSrc, i);
+    }
+  }
+  function initialiseRequiredPrototypes (){
+    waveMaker = new WaveMaker();
+    loopFactory = new LoopFactory(audioSrc, waveMaker, 1);
+  }
 
-populateDivsWithLoops();
+
+  exports.init = init
+})(this)
+
+window.addEventListener('load', init);
