@@ -25,6 +25,7 @@
       console.log(mediaRecorder.state); // logs 'inactive' in the console
       $('#recording-button').removeClass("Rec");
       $('#recording-button').addClass("notRec");
+      document.getElementById("recording-button").disabled = false;
     };
 
     // stops recording and currently pushes to urls array

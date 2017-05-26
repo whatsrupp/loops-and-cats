@@ -87,7 +87,12 @@ function init() {
 
   var recordingButton = document.getElementById('recording-button');
   recordingButton.onclick = function() {
-    isRecording = !isRecording
+    isRecording = !isRecording;
+    if(isRecording){
+      console.log(recordingButton.disabled);
+      recordingButton.disabled = true;
+      console.log(recordingButton.disabled)
+    }
   };
 
   var stopBeaterButton = document.getElementById('stop-beater-button');
