@@ -2,7 +2,7 @@
 
   var lookahead = 25.0;
   initializeMasterBeater = function(){
-    timerWorker.onmessage = function(e) {
+    masterBeater.onmessage = function(e) {
       if (e.data == "tick") {
         scheduler.schedule();
       } else {
@@ -10,8 +10,8 @@
       };
     };
 
-    timerWorker.postMessage({"interval":lookahead})
-    timerWorker.postMessage("start");
+    masterBeater.postMessage({"interval":lookahead})
+    masterBeater.postMessage("start");
   }
 
   function toggleMasterBeaterState() {
@@ -20,9 +20,9 @@
     if (scheduler.isPlaying) {
       current4thNote = 0;
       nextNoteTime = audioContext.currentTime;
-      timerWorker.postMessage("start");
+      masterBeater.postMessage("start");
     } else {
-      timerWorker.postMessage('stop');
+      masterBeater.postMessage('stop');
     }
   }
   exports.toggleMasterBeaterState = toggleMasterBeaterState;

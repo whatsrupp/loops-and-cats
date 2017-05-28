@@ -21,7 +21,7 @@
     loopFactory = new LoopFactory(audioSrc, waveMaker, 1);
     spinningHeads = new SpinningHeads();
     audioContext = new AudioContext();
-    timerWorker = new Worker("/scripts/masterBeater.js")
+    masterBeater = new Worker("/scripts/workers/masterBeater.js")
     scheduler = new Scheduler();
   }
 
