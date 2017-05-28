@@ -11,9 +11,7 @@
       function playWaveForms(){
         for(var i = 0; i < loopFactory.loops.length; i++){
           var loop = loopFactory.loops[i]
-          if (loop.isActive){
-            loop.waveform.play()
-          }
+          loop.waveform.play()
         }
       }
       cueEvent(beatNumber, time, playWaveForms)
