@@ -11,6 +11,8 @@
   onSuccess = function(stream) {
     $('#recording-button').removeClass("notRec");
     $('#recording-button').addClass("Rec");
+    loopFactory.activateInputVisualiser();
+    microphone.start();
     mediaRecorder = new MediaRecorder(stream);
     var chunks = [];
     mediaRecorder.start();
@@ -31,6 +33,7 @@
     };
   }
   stopRecording = function() {
+    microphone.stop();
     mediaRecorder.stop();
     console.log(mediaRecorder.state); // logs 'inactive' in the console
     $('#recording-button').removeClass("Rec");

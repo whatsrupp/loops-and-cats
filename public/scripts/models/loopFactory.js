@@ -36,6 +36,20 @@
       };
       return count
     };
+
+    this.activateInputVisualiser = function(){
+      var index;
+      for(var i = 0; i < 8; i++){
+        if(this.loops[i].url === 'audio/Silence.ogg'){
+          index = i;
+          break
+        }
+      }
+      inputWave = this.loops[index].waveform;
+      microphone.init({
+          wavesurfer: inputWave
+      });
+    }
   }
 
   exports.LoopFactory = LoopFactory;
