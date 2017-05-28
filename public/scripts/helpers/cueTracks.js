@@ -8,7 +8,7 @@
           loop.waveform.play()
         }
       }
-      cueEvent(beatNumber, time, playWaveForms)
+      cueFunction(beatNumber, time, playWaveForms)
   }
 
   function cueTrack(time){

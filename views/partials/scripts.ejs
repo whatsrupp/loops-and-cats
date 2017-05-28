@@ -1,27 +1,27 @@
-<script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.7/wavesurfer.min.js"></script>
+<!-- External Resources -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.7/wavesurfer.min.js"></script>
+<script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.2.3/plugin/wavesurfer.microphone.min.js"></script>
-<script src='scripts/recorder.js'></script>
+
 <!-- Prototype Models -->
-<script src='scripts/models/eventActivator.js'></script>
 <script src='scripts/models/loopFactory.js'></script>
 <script src='scripts/models/loop.js'></script>
 <script src='scripts/models/scheduler.js'></script>
-
 <script src='scripts/models/waveMaker.js'></script>
-<script src='scripts/models/oscLoader.js'></script>
-<script src='scripts/models/recordingLoader.js'></script>
 
 <!-- Initializers -->
 <script src='scripts/initializers/initializer.js'></script>
 <script src='scripts/initializers/masterBeater.js'></script>
 
 <!-- Helpers -->
+<script src='scripts/helpers/recorder.js'></script>
 <script src='scripts/helpers/musicalTiming.js'></script>
+<script src='scripts/helpers/cueFunction.js'></script>
+<script src='scripts/helpers/cueMetronome.js'></script>
+<script src='scripts/helpers/cueTracks.js'></script>
 
 <!-- Front End -->
-<script src='scripts/frontEnd/recordingButton.js'></script>
-<script src='scripts/frontEnd/metronome.js'></script>
-<script src='scripts/frontEnd/trackControlButtons.js'></script>
-<script src='scripts/models/spinning-heads.js'></script>
-
-<script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
+<script src='scripts/frontEndEvents/recordingButton.js'></script>
+<script src='scripts/frontEndEvents/metronome.js'></script>
+<script src='scripts/frontEndEvents/trackControlButtons.js'></script>
+<script src='scripts/frontEndEvents/spinning-heads.js'></script>

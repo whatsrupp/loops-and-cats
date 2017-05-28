@@ -26,13 +26,13 @@ function Scheduler() {
   this.scheduleBeat = function(){
     if (this.metronomeOn) {
       bufferOscillator(this.nextBeatNumber);
-      cueOscillator(this.nextBeatNumber,this.nextBeatTime);
+      cueMetronome(this.nextBeatNumber,this.nextBeatTime);
     }
 
     if (this.nextBeatNumber == 0){
       if (this.isRecording){
-        cueEvent(this.nextBeatNumber, this.nextBeatTime, startRecording)
-        cueEvent(this.nextBeatNumber, (this.nextBeatTime + secondsPerBar(this.tempo)), stopRecording)
+        cueFunction(this.nextBeatNumber, this.nextBeatTime, startRecording)
+        cueFunction(this.nextBeatNumber, (this.nextBeatTime + secondsPerBar(this.tempo)), stopRecording)
         this.isRecording = false;
       }
 
@@ -49,7 +49,6 @@ function Scheduler() {
       this.updateNextBeatNumber()
     }
   }
-
 }
 
 exports.Scheduler = Scheduler;

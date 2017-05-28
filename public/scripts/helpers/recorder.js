@@ -9,15 +9,16 @@
   openRecordingStream = function(){
     var mediaType = { audio: true }
     if (navigator.getUserMedia) {
-      console.log("getUserMedia supported! Nice eh?");
+      console.log("getUserMedia supported.");
       navigator.getUserMedia(mediaType, onSuccess, onError)
     } else {
-      console.log("getUserMedia not supported on your browser");
+      console.log("getUserMedia is not supported on your browser, try the latest version of chrome");
     }
   }
 
   onSuccess = function(stream) {
     mediaRecorder = new MediaRecorder(stream);
+    console.log('Audio media stream now open')
     initializeOnDataAvailableEvent();
     initializeStopRecordingEvent();
   };
@@ -56,6 +57,7 @@
   stopRecording = function() {
     microphone.stop();
     mediaRecorder.stop();
+    console.log(mediaRecorder.state)
     activateRecordOffVisuals()
   };
 

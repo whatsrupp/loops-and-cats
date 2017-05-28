@@ -16,7 +16,7 @@
     }
   }
 
-  function cueOscillator(nextBeatNumber, nextBeatTime){
+  function cueMetronome(nextBeatNumber, nextBeatTime){
     oscillator.start(nextBeatTime)
     oscillator.stop(nextBeatTime + OscillatorPlayLength)
   }
@@ -26,6 +26,6 @@
   }
 
   exports.bufferOscillator = bufferOscillator
-  exports.cueOscillator = cueOscillator
+  exports.cueMetronome = cueMetronome
 
 })(this)

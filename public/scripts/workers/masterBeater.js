@@ -3,23 +3,23 @@ var interval=100;
 
 self.onmessage=function(e){
 	if (e.data=="start") {
-		console.log("starting");
+		postMessage("Starting master beater");
 		timerID=setInterval(function(){postMessage("tick");},interval)
 	}
 	else if (e.data.interval) {
-		console.log("setting interval");
+		postMessage("Setting master beater interval");
 		interval=e.data.interval;
-		console.log("interval="+interval);
+		postMessage("Interval set to = " + interval + " ms");
 		if (timerID) {
 			clearInterval(timerID);
 			timerID=setInterval(function(){postMessage("tick");},interval)
 		}
 	}
 	else if (e.data=="stop") {
-		console.log("stopping");
+		postMessage("Stopping master beater");
 		clearInterval(timerID);
 		timerID=null;
 	}
 };
 
-postMessage('hi there');
+postMessage('Master Beater Initialized Successfully');
