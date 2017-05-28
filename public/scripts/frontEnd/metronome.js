@@ -8,7 +8,7 @@
   }
 
   toggleMetronomeState = function (){
-    metronomeOn = !metronomeOn;
+    scheduler.metronomeOn = !scheduler.metronomeOn;
   }
 
 })(this)

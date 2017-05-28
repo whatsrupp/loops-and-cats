@@ -2,12 +2,6 @@
   var buffer = null;
 
   function cueActiveTracks(beatNumber, time){
-    // bufferTrack();
-    // cueTrack(time);
-
-    // var loops = loopFactory.loops
-
-    // for (i = 0; i < loops.length; i++) {
       function playWaveForms(){
         for(var i = 0; i < loopFactory.loops.length; i++){
           var loop = loopFactory.loops[i]
@@ -15,10 +9,10 @@
         }
       }
       cueEvent(beatNumber, time, playWaveForms)
-    // }
   }
 
   function cueTrack(time){
+    // Buffers audio source with Web Audio Api
     var source = audioContext.createBufferSource();
     source.buffer = buffer;
     source.connect(audioContext.destination);
