@@ -97,10 +97,7 @@ function init() {
     play()
   };
 
-  var metronomeButton = document.getElementById('metronomeButton');
-  metronomeButton.onclick = function() {
-    metronomeOn = !metronomeOn
-  }
+
   var delButtons = document.getElementsByClassName('deleteButton')
   for(var i = 0; i < delButtons.length; i++){
     delButtons[i].onclick = function() {

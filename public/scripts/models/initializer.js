@@ -5,6 +5,7 @@
     initialiseRequiredPrototypes();
     populateDivsWithLoops();
     initializeRecordButton();
+    initializeMetronomeButton();
   }
 
   function populateDivsWithLoops () {
