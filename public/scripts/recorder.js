@@ -5,14 +5,15 @@
   var urls = [];
   var mediaType = { audio: true}
   var mediaRecorder = null;
+  var chunks = [];
+  
   onError = function(err) {
     console.log("The following getUserMedia error occured: " + err + ". That is not nice, eh?");
   }
+
   onSuccess = function(stream) {
-    $('#recording-button').removeClass("notRec");
-    $('#recording-button').addClass("Rec");
+    activateRecordOnVisuals()
     mediaRecorder = new MediaRecorder(stream);
-    var chunks = [];
     mediaRecorder.start();
     console.log(mediaRecorder.state); // logs 'recording' in the console
 
