@@ -17,7 +17,6 @@
   }
 
   onSuccess = function(stream) {
-    // Open Stream
     mediaRecorder = new MediaRecorder(stream);
     initializeOnDataAvailableEvent();
     initializeStopRecordingEvent();
@@ -34,6 +33,9 @@
   }
 
   startRecording = function(){
+    microphone = Object.create(WaveSurfer.Microphone);
+    loopFactory.activateInputVisualiser();
+    microphone.start();
     mediaRecorder.start();
     activateRecordOnVisuals()
     console.log(mediaRecorder.state); // logs 'recording' in the console
@@ -52,6 +54,7 @@
   }
 
   stopRecording = function() {
+    microphone.stop();
     mediaRecorder.stop();
     activateRecordOffVisuals()
   };
