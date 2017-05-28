@@ -42,7 +42,7 @@ function scheduleNote (beatNumber, time) {
 
   if (beatNumber == 0){
     if (isRecording){
-      cueEvent(beatNumber, time, activateRecording)
+      cueEvent(beatNumber, time, startRecording)
       // cueEvent(beatNumber, time + secondsPerBar(), stopRecording)
       cueEvent(beatNumber, (time + secondsPerBar()), stopRecording)
 

@@ -6,6 +6,7 @@
     populateDivsWithLoops();
     initializeRecordButton();
     initializeMetronomeButton();
+    openRecordingStream();
   }
 
   function populateDivsWithLoops () {
