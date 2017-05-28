@@ -95,14 +95,17 @@ function init() {
   var playAllButton = document.getElementById('play-all');
   playAllButton.onclick = function() {
     for(var i = 0; i < loopFactory.loops.length; i++){
-      loopFactory.loops[i].makeActive();
+      // loopFactory.loops[i].makeActive();
+        loopFactory.loops[i].unmuteTrack()
     }
   }
 
   var muteAllButton = document.getElementById('mute-all');
   muteAllButton.onclick = function() {
     for(var i = 0; i < loopFactory.loops.length; i++){
-      loopFactory.loops[i].makeInactive();
+      // loopFactory.loops[i].makeInactive();
+      loopFactory.loops[i].muteTrack()
+
     }
   }
 
@@ -110,7 +113,9 @@ function init() {
   for(var i = 0; i < muteButtons.length; i++){
     muteButtons[i].onclick = function() {
       var index = (Number(this.id.split('muteButton-')[1]) - 1);
-      loopFactory.loops[index].updateIsActive();
+      // loopFactory.loops[index].updateIsActive();
+      loopFactory.loops[index].toggleMuteState()
+
     }
   }
 
@@ -119,8 +124,12 @@ function init() {
     soloButtons[j].onclick = function() {
       for(var i = 0; i < soloButtons.length; i++) {
         var index = (Number(this.id.split('soloButton-')[1]) - 1);
-        loopFactory.loops[i].makeInactive();
-        loopFactory.loops[index].makeActive();
+        // loopFactory.loops[i].makeInactive();
+        // loopFactory.loops[index].makeActive();
+        loopFactory.loops[i].muteTrack()
+        loopFactory.loops[index].unmuteTrack();
+
+
       }
     }
   }
