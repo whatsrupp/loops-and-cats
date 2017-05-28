@@ -7,6 +7,17 @@
     this.waveMaker = waveMaker
     this.waveform = this.waveMaker.createWave(this.url, this.number)
 
+    this.toggleMuteState = function (){
+      var currentState = this.waveform.getMute();
+      this.waveform.setMute(!currentState)
+    }
+    this.muteTrack = function(){
+      this.waveform.setMute(true);
+    }
+
+    this.unmuteTrack = function(){
+      this.waveform.setMute(false);
+    }
 
     this.updateIsActive = function() {
       this.isActive = !this.isActive;

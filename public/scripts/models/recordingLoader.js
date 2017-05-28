@@ -9,14 +9,12 @@
 
     // for (i = 0; i < loops.length; i++) {
       function playWaveForms(){
-        loopFactory.loops[1].waveform.play()
-        loopFactory.loops[2].waveform.play()
-        loopFactory.loops[3].waveform.play()
-        loopFactory.loops[4].waveform.play()
-        loopFactory.loops[5].waveform.play()
-        loopFactory.loops[6].waveform.play()
-        loopFactory.loops[7].waveform.play()
-        loopFactory.loops[0].waveform.play()
+        for(var i = 0; i < loopFactory.loops.length; i++){
+          var loop = loopFactory.loops[i]
+          if (loop.isActive){
+            loop.waveform.play()
+          }
+        }
       }
       cueEvent(beatNumber, time, playWaveForms)
     // }
