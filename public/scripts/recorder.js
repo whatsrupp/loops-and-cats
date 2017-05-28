@@ -6,7 +6,7 @@
   var mediaType = { audio: true}
   var mediaRecorder = null;
   var chunks = [];
-  
+
   onError = function(err) {
     console.log("The following getUserMedia error occured: " + err + ". That is not nice, eh?");
   }
@@ -34,9 +34,7 @@
   stopRecording = function() {
     mediaRecorder.stop();
     console.log(mediaRecorder.state); // logs 'inactive' in the console
-    $('#recording-button').removeClass("Rec");
-    $('#recording-button').addClass("notRec");
-    document.getElementById('recording-button').disabled = false;
+    activateRecordOffVisuals()
   };
 
   activateRecording = function(){

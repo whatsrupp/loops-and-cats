@@ -4,6 +4,7 @@
   function init() {
     initialiseRequiredPrototypes();
     populateDivsWithLoops();
+    initializeRecordButton();
   }
 
   function populateDivsWithLoops () {
