@@ -42,7 +42,7 @@ function scheduleNote (beatNumber, time) {
 
   if (beatNumber == 0){
     if (isRecording){
-      cueEvent(beatNumber, time, activateRecording)
+      cueEvent(beatNumber, time, startRecording)
       // cueEvent(beatNumber, time + secondsPerBar(), stopRecording)
       cueEvent(beatNumber, (time + secondsPerBar()), stopRecording)
 
@@ -90,16 +90,7 @@ function init() {
 
   timerWorker.postMessage({"interval":lookahead})
 
-  var recordingButton = document.getElementById('recording-button');
-  recordingButton.onclick = function() {
 
-    if (loopFactory.isFull()){
-      alert("No free loops: please delete one and try again!")
-    } else {
-      isRecording = !isRecording
-      recordingButton.disabled = true;
-    }
-  };
 
   var playAllButton = document.getElementById('play-all');
   playAllButton.onclick = function() {
@@ -140,10 +131,6 @@ function init() {
     play()
   };
 
-  var metronomeButton = document.getElementById('metronomeButton');
-  metronomeButton.onclick = function() {
-    metronomeOn = !metronomeOn
-  }
 
   var delButtons = document.getElementsByClassName('deleteButton')
   for(var i = 0; i < delButtons.length; i++){

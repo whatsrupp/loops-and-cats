@@ -4,6 +4,9 @@
   function init() {
     initialiseRequiredPrototypes();
     populateDivsWithLoops();
+    initializeRecordButton();
+    initializeMetronomeButton();
+    openRecordingStream();
   }
 
   function populateDivsWithLoops () {
