@@ -101,6 +101,26 @@ function init() {
     }
   };
 
+  var muteButtons = document.getElementsByClassName('muteButton');
+  for(var i = 0; i < muteButtons.length; i++){
+    muteButtons[i].onclick = function() {
+      var index = (Number(this.id.split('muteButton-')[1]) - 1);
+      loopFactory.loops[index].updateIsActive();
+    }
+  }
+
+  var soloButtons = document.getElementsByClassName('soloButton');
+  for(var j = 0; j < soloButtons.length; j++){
+    soloButtons[j].onclick = function() {
+      for(var i = 0; i < soloButtons.length; i++) {
+        var index = (Number(this.id.split('soloButton-')[1]) - 1);
+        loopFactory.loops[i].makeInactive();
+        loopFactory.loops[index].makeActive();
+      }
+    }
+  }
+
+
   var stopBeaterButton = document.getElementById('stop-beater-button');
   stopBeaterButton.onclick = function() {
     play()
@@ -110,6 +130,7 @@ function init() {
   metronomeButton.onclick = function() {
     metronomeOn = !metronomeOn
   }
+
   var delButtons = document.getElementsByClassName('deleteButton')
   for(var i = 0; i < delButtons.length; i++){
     delButtons[i].onclick = function() {
