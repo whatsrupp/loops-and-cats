@@ -110,10 +110,13 @@ function init() {
   }
 
   var soloButtons = document.getElementsByClassName('soloButton');
-  for(var i = 0; i < muteButtons.length; i++){
-    muteButtons[i].onclick = function() {
-      var index = (Number(this.id.split('muteButton-')[1]) - 1);
-      loopFactory.loops[index].updateIsActive();
+  for(var j = 0; j < soloButtons.length; j++){
+    soloButtons[j].onclick = function() {
+      for(var i = 0; i < soloButtons.length; i++) {
+        var index = (Number(this.id.split('soloButton-')[1]) - 1);
+        loopFactory.loops[i].makeInactive();
+        loopFactory.loops[index].makeActive();
+      }
     }
   }
 
