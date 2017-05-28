@@ -114,5 +114,5 @@ We're a small team of 4 aiming to build this product in 2 weeks. Fingers crossed
 
 - [Jack Bittiner](https://github.com/jackbittiner)
 - [Nick Rupp](https://github.com/whatsrupp)
-- [Will Schweir](https://github.com/w-schwier)
+- [Will Schwier](https://github.com/w-schwier)
 - [Vivien Tang](https://github.com/honjintang)
