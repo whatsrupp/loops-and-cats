@@ -12,6 +12,14 @@
       this.isActive = !this.isActive;
     }
 
+    this.makeActive = function() {
+      this.isActive = true;
+    }
+
+    this.makeInactive = function() {
+      this.isActive = false;
+    }
+
     this.updateURL = function(url) {
       this.url = url
       this.waveform.load(url)
