@@ -22,13 +22,3 @@
 })(this)
 
 window.addEventListener('load', init);
-
-
-microphone = Object.create(WaveSurfer.Microphone);
-
-microphone.on('deviceReady', function(stream) {
-    console.log('Device ready!', stream);
-});
-microphone.on('deviceError', function(code) {
-    console.warn('Device error: ' + code);
-});

@@ -11,6 +11,7 @@
   onSuccess = function(stream) {
     $('#recording-button').removeClass("notRec");
     $('#recording-button').addClass("Rec");
+    microphone = Object.create(WaveSurfer.Microphone);
     loopFactory.activateInputVisualiser();
     microphone.start();
     mediaRecorder = new MediaRecorder(stream);
