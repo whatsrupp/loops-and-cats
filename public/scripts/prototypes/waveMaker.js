@@ -1,5 +1,5 @@
 (function(exports){
-
+  
   function WaveMaker(){
     this.createWave = function(url, number){
           var wave = WaveSurfer.create({

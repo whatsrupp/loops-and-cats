@@ -1,4 +1,5 @@
 # Loops and Cats
+'The one place where infinite loops are helpful'
 
 ## Introduction:
 
@@ -48,7 +49,7 @@ I want a vaguely coherent user interface
 
 ![Brainstorm](/docs/images/large/brainstorm.png)
 
-MVP V2
+## MVP V2
 
 ```
 As a musician
@@ -74,7 +75,43 @@ So that I can record in time
 I want to be able to hear a metronome
 ```
 
+## Trying Out Loops and Cats
+It might be live on Heroku [here](loops-and-cats.herokuapp.com) but, as much as we love Heroku, it often tears down inactive free sites to free up their systems when you least expect it. A safer bet might be a local installation.
 
+We're assuming you are on a Mac set up for development, are more competent than us and that you have Homebrew installed. If not the following links might help:
+Install Homebrew [here](https://brew.sh/).
+Set up for development [here](http://www.preparetocode.io/).
+
+#### 1) Install Node
+
+This cracking installation needs Node.
+In your terminal run:
+```
+$ brew install node
+```
+
+#### 2) Clone this repository
+```
+$  cd desired/file/location/of/loops-and-cats
+$  git clone https://github.com/whatsrupp/loops-and-cats
+```
+
+#### 3) Download Required Node Packages
+This uses node package manager ('npm') and it is installed at the same time as node.
+```
+$  cd file/location/of/loops-and-cats
+$  npm install
+```
+
+#### 4) Start the local server
+```
+$ node index.js
+```
+#### 5) Open in your browser
+Check out the following into your URL bar in your browser:
+```
+http://localhost:6969/
+```
 
 ## Testing
 It's difficult to test and area in which you're doing a lot of learning, but we've decided to use Mocha and Zombie.
@@ -108,6 +145,9 @@ Would thoroughly recommend to anyone building an audio app. Check it out [here](
 
 ## Metronome
 
+This metronome project was the initial kick in the right direction that allowed us to get this project started. It demonstrated a number of incredibly useful concepts.
+- Using frequent lookahead functions to consistently cue web audio API events regardless of high local load and to allow for buffering of tracks.
+- How to structure audio software that has to be in a well timed infinite loop.
 
 ## Developers
 We're a small team of 4 aiming to build this product in 2 weeks. Fingers crossed!
