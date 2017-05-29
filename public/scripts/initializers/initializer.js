@@ -9,6 +9,7 @@
     openRecordingStream();
     initializeMasterBeater();
     initializeMuteButtons();
+    initializeKeyboardShortcuts();
   }
 
   function populateDivsWithLoops () {
