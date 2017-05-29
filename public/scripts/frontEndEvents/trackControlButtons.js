@@ -72,19 +72,23 @@
 
     initializeDecreaseButton = function() {
       var decreaseButton = document.getElementById('decrease-recording-length');
+      var display = document.getElementById('recording-length-display');
       decreaseButton.onclick = function() {
         if(scheduler.recordingLength > 1) {
           scheduler.recordingLength /= 2
         }
+        display.innerHTML = "Record Length: " + scheduler.recordingLength
       }
     }
 
     initializeIncreaseButton = function() {
       var increaseButton = document.getElementById('increase-recording-length');
+      var display = document.getElementById('recording-length-display');
       increaseButton.onclick = function() {
         if(scheduler.recordingLength < 8) {
           scheduler.recordingLength *= 2
         }
+        display.innerHTML = "Record Length: " + scheduler.recordingLength
       }
     }
 
