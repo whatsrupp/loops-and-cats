@@ -33,7 +33,7 @@ function Scheduler() {
     if (nextBeatInBar(this.nextBeatNumber) == 0){
       if (this.isRecording){
         cueFunction(nextBeatInBar(this.nextBeatNumber), this.nextBeatTime, startRecording)
-        cueFunction(nextBeatInBar(this.nextBeatNumber), (this.nextBeatTime + secondsPerBar(this.tempo)), stopRecording)
+        cueFunction(nextBeatInBar(this.nextBeatNumber), (this.nextBeatTime + (secondsPerBar(this.tempo) * this.recordingLength)), stopRecording)
         this.isRecording = false;
       }
 
