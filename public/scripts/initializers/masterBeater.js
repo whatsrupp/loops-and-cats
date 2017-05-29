@@ -18,8 +18,8 @@
     scheduler.isPlaying = !scheduler.isPlaying;
 
     if (scheduler.isPlaying) {
-      current4thNote = 0;
-      nextNoteTime = audioContext.currentTime;
+      scheduler.nextBeatNumber = 0;
+      scheduler.nextBeatTime = audioContext.currentTime;
       masterBeater.postMessage("start");
     } else {
       masterBeater.postMessage('stop');
