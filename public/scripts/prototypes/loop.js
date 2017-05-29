@@ -6,6 +6,11 @@
     this.number = number;
     this.waveMaker = waveMaker;
     this.waveform = this.waveMaker.createWave(this.url, this.number);
+    this.lengthInBars = 1;
+
+    this.updateLength = function(newLength){
+      this.lengthInBars = newLength;
+    }
 
     this.toggleMuteState = function (){
       var currentState = this.waveform.getMute();

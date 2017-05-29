@@ -9,6 +9,7 @@ function Scheduler() {
   this.scheduleAheadTime = 0.1;
   this.isPlaying = false;
   this.isRecording = false;
+  this.recordingLength = 1;
 
   this.updateNextBeatNumber = function() {
     this.nextBeatNumber += 1;
