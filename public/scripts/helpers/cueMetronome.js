@@ -9,7 +9,6 @@
 
     oscillator = audioContext.createOscillator();
     oscillator.connect(audioContext.destination);
-
     if(isStartOfBar(nextBeatNumber)){
       oscillator.frequency.value = HighFrequencyHz
     }else{
@@ -17,7 +16,7 @@
     }
   }
 
-  function cueOscillator(nextBeatNumber, nextBeatTime){
+  function cueMetronome(nextBeatNumber, nextBeatTime){
     oscillator.start(nextBeatTime)
     oscillator.stop(nextBeatTime + OscillatorPlayLength)
   }
@@ -25,8 +24,8 @@
   function isStartOfBar (nextBeatNumber){
     return nextBeatNumber == 0
   }
-  
+
   exports.bufferOscillator = bufferOscillator
-  exports.cueOscillator = cueOscillator
+  exports.cueMetronome = cueMetronome
 
 })(this)

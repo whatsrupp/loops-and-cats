@@ -18,11 +18,10 @@
   function addFunctionToCallback(callbackFunction){
     dummyOscillator.onended = function() {
       callbackFunction();
-      console.log('Finished');
     }
   }
 
-  function cueEvent(nextBeatNumber, nextBeatTime, callbackFunction){
+  function cueFunction(nextBeatNumber, nextBeatTime, callbackFunction){
     loadEventActivator()
     addFunctionToCallback(callbackFunction)
     scheduleEventExecution(nextBeatTime)
@@ -37,6 +36,6 @@
     return nextBeatNumber == 0
   }
 
-  exports.cueEvent = cueEvent
+  exports.cueFunction = cueFunction
 
 })(this)

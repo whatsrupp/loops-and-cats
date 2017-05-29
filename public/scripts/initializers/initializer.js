@@ -7,6 +7,8 @@
     initializeRecordButton();
     initializeMetronomeButton();
     openRecordingStream();
+    initializeMasterBeater();
+    initializeMuteButtons();
   }
 
   function populateDivsWithLoops () {
@@ -18,6 +20,9 @@
     waveMaker = new WaveMaker();
     loopFactory = new LoopFactory(audioSrc, waveMaker, 1);
     spinningHeads = new SpinningHeads();
+    audioContext = new AudioContext();
+    masterBeater = new Worker("/scripts/workers/masterBeater.js")
+    scheduler = new Scheduler();
   }
 
 

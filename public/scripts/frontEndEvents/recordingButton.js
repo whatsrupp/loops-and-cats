@@ -20,7 +20,7 @@
       if (loopFactory.isFull()){
         alert("No free loops: please delete one and try again!")
       } else {
-        isRecording = !isRecording
+        scheduler.isRecording = !scheduler.isRecording
         recordingButton.prop('disabled', true);
       }
     });

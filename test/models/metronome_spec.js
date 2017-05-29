@@ -80,7 +80,7 @@ describe('Scheduler Model', function(){
     it('increments the beat', function(){
       var scheduler = new Scheduler();
       var initialBeatTime = scheduler.nextBeatTime;
-      scheduler.nextBeatInfoUpdate();
+      scheduler.updateNextBeatTime();
       var updatedBeatTime = scheduler.nextBeatTime;
       var difference = updatedBeatTime - initialBeatTime;
       var timePerBeat = 60.0 / scheduler.tempo;

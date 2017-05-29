@@ -10,25 +10,16 @@
     this.toggleMuteState = function (){
       var currentState = this.waveform.getMute();
       this.waveform.setMute(!currentState)
+      this.isActive = !this.isActive;
     }
     this.muteTrack = function(){
       this.waveform.setMute(true);
+      this.isActive = false;
     }
 
     this.unmuteTrack = function(){
       this.waveform.setMute(false);
-    }
-
-    this.updateIsActive = function() {
-      this.isActive = !this.isActive;
-    }
-
-    this.makeActive = function() {
       this.isActive = true;
-    }
-
-    this.makeInactive = function() {
-      this.isActive = false;
     }
 
     this.updateURL = function(url) {
