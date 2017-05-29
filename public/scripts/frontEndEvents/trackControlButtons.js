@@ -7,6 +7,9 @@
     initializeDeleteButtons();
     initializeStopBeaterButton();
     initializePlayAllButton();
+    initializeDecreaseButton();
+    initializeIncreaseButton();
+
   }
 
   initializeIndividualButtons = function(){
@@ -38,7 +41,7 @@
 
   initializeDeleteButtons = function(){
     var delButtons = document.getElementsByClassName('deleteButton')
-    var blankAudio = '/audio/Silence.ogg'
+    var blankAudio = 'audio/Silence.ogg'
     for(var i = 0; i < delButtons.length; i++){
       delButtons[i].onclick = function() {
         var index = (Number(this.id.split('deleteButton-')[1]) - 1)
@@ -66,6 +69,31 @@
         }
       }
     }
+
+    initializeDecreaseButton = function() {
+      var decreaseButton = document.getElementById('decrease-recording-length');
+      var display = document.getElementById('recording-length-display');
+      decreaseButton.onclick = function() {
+        if(scheduler.recordingLength > 1) {
+          scheduler.recordingLength /= 2
+        }
+        display.innerHTML = "Record Length: " + scheduler.recordingLength
+      }
+    }
+
+    initializeIncreaseButton = function() {
+      var increaseButton = document.getElementById('increase-recording-length');
+      var display = document.getElementById('recording-length-display');
+      increaseButton.onclick = function() {
+        if(scheduler.recordingLength < 8) {
+          scheduler.recordingLength *= 2
+        }
+        display.innerHTML = "Record Length: " + scheduler.recordingLength
+      }
+    }
+
+
+
   }
 
   exports.initializeMuteButtons = initializeMuteButtons

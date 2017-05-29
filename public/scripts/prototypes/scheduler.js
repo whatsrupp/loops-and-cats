@@ -9,10 +9,11 @@ function Scheduler() {
   this.scheduleAheadTime = 0.1;
   this.isPlaying = false;
   this.isRecording = false;
+  this.recordingLength = 1;
 
   this.updateNextBeatNumber = function() {
     this.nextBeatNumber += 1;
-    if(this.nextBeatNumber == 4){
+    if(this.nextBeatNumber == 32){
       this.nextBeatNumber = 0;
     }
   }
@@ -25,26 +26,26 @@ function Scheduler() {
 
   this.scheduleBeat = function(){
     if (this.metronomeOn) {
-      bufferOscillator(this.nextBeatNumber);
-      cueMetronome(this.nextBeatNumber,this.nextBeatTime);
+      bufferOscillator(nextBeatInBar(this.nextBeatNumber));
+      cueMetronome(nextBeatInBar(this.nextBeatNumber),this.nextBeatTime);
     }
 
-    if (this.nextBeatNumber == 0){
+    if (nextBeatInBar(this.nextBeatNumber) == 0){
       if (this.isRecording){
-        cueFunction(this.nextBeatNumber, this.nextBeatTime, startRecording)
-        cueFunction(this.nextBeatNumber, (this.nextBeatTime + secondsPerBar(this.tempo)), stopRecording)
+        cueFunction(nextBeatInBar(this.nextBeatNumber), this.nextBeatTime, startRecording)
+        cueFunction(nextBeatInBar(this.nextBeatNumber), (this.nextBeatTime + (secondsPerBar(this.tempo) * this.recordingLength)), stopRecording)
         this.isRecording = false;
       }
 
       if(loopFactory.isNotEmpty()){
-        cueActiveTracks(this.nextBeatNumber,this.nexBeatTime)
+        cueActiveTracks(nextBeatInBar(this.nextBeatNumber),this.nextBeatTime)
       }
     }
   }
 
   this.schedule = function (){
     while (this.nextBeatTime < audioContext.currentTime + this.scheduleAheadTime) {
-      this.scheduleBeat(this.nextBeatNumber, this.nextBeatTime);
+      this.scheduleBeat(nextBeatInBar(this.nextBeatNumber), this.nextBeatTime);
       this.updateNextBeatTime()
       this.updateNextBeatNumber()
     }
