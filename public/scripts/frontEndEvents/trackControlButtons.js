@@ -38,6 +38,7 @@
 
   initializeDeleteButtons = function(){
     var delButtons = document.getElementsByClassName('deleteButton')
+    var blankAudio = '/audio/Silence.ogg'
     for(var i = 0; i < delButtons.length; i++){
       delButtons[i].onclick = function() {
         var index = (Number(this.id.split('deleteButton-')[1]) - 1)
