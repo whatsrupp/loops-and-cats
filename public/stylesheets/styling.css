@@ -7,10 +7,3 @@ body {
 * {
   color: blue;
 }
-
-.wavecontainer {
-  height: 127px;
-  width: 620px;
-  border-color: purple;
-  border-style: solid;
-}
