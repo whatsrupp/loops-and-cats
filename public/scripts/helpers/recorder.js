@@ -23,7 +23,6 @@
   };
 
   initializeOnDataAvailableEvent = function(){
-
     mediaRecorder.ondataavailable = function(e) {
       chunks.push(e.data);
     };
