@@ -1,7 +1,7 @@
 (function(exports){
 
-  initializeMuteButtons = function(){
-    initializeIndividualButtons();
+  initializeAllButtons = function(){
+    initializeIndividualMuteButtons();
     initializeMuteAllButton();
     initializeSoloButtons();
     initializeDeleteButtons();
@@ -12,12 +12,17 @@
 
   }
 
-  initializeIndividualButtons = function(){
+  initializeIndividualMuteButtons = function(){
     var muteButtons = document.getElementsByClassName('muteButton');
     for(var i = 0; i < muteButtons.length; i++){
       muteButtons[i].onclick = function() {
         var index = (Number(this.id.split('muteButton-')[1]) - 1);
-        loopFactory.loops[index].toggleMuteState()
+        loopFactory.loops[index].toggleMuteState();
+        if(loopFactory.loops[index].isActive) {
+          $('span:first', this).prop('class', 'glyphicon glyphicon-volume-up');
+        } else {
+          $('span:first', this).prop('class', 'glyphicon glyphicon-volume-off');
+        }
       }
     }
   }
@@ -96,5 +101,5 @@
 
   }
 
-  exports.initializeMuteButtons = initializeMuteButtons
+  exports.initializeAllButtons = initializeAllButtons
 })(this)

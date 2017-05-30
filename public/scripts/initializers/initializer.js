@@ -8,7 +8,7 @@
     initializeMetronomeButton();
     openRecordingStream();
     initializeMasterBeater();
-    initializeMuteButtons();
+    initializeAllButtons();
     initializeKeyboardShortcuts();
     initializeResponsiveWaveforms();
   }
