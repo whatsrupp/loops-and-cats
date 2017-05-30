@@ -6,9 +6,10 @@
 .waveform{
   height: 100%;
   width: 80%;
-  border-color: purple;
+  border-color: #dff302;
   border-style: solid;
   border-width: 1px;
+  color: #dff302;
 }
 .wavecontainer {
 

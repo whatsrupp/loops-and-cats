@@ -1,9 +1,10 @@
 body {
-    background-image: url("/images/geometric-background.jpg");
-    background-size: cover;
+    /*background-image: url("/images/geometric-background.jpg");
+    background-size: cover;*/
+    background-color: #272727 !important;
 
 }
 
 * {
-  color: white;
+  color: #e3e3e3;
 }

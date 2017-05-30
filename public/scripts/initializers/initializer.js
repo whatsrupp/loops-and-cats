@@ -27,15 +27,7 @@
     masterBeater = new Worker("/scripts/workers/masterBeater.js")
     scheduler = new Scheduler();
     mixRecorder = new MixRecorder(audioContext);
-    // setupMixListener(audioContext);
   }
-
-  // function setupMixListener(audio){
-  //   mixedAudio = audio.createMediaStreamDestination();
-  //   merger = audio.createChannelMerger(8);
-  //   merger.connect(mixedAudio);
-  //   mixRecorder = new MediaRecorder(mixedAudio.stream);
-  // }
 
   exports.init = init
 })(this)
