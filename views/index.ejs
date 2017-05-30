@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Loops and cats</title>
     <% include partials/asset-load.ejs %>
+    <% include partials/stylesheets.ejs %>
   </head>
   <body>
+    <% include partials/spinning_heads.ejs %>
     <% include partials/navbar.ejs %>
     <% include partials/metronomePlay.ejs %>
     <% include partials/audio-recorder.ejs %>
     <% include partials/scripts.ejs %>
-    <% include partials/spinning_heads.ejs %>
-
+    <% include partials/globalControls.ejs %>
 
     <button type="button" id='stop-beater-button'>Stop Master Beater</button>
   </body>
