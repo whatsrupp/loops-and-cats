@@ -18,11 +18,7 @@
       muteButtons[i].onclick = function() {
         var index = (Number(this.id.split('muteButton-')[1]) - 1);
         loopFactory.loops[index].toggleMuteState();
-        if(loopFactory.loops[index].isActive) {
-          $('span:first', this).prop('class', 'glyphicon glyphicon-volume-up');
-        } else {
-          $('span:first', this).prop('class', 'glyphicon glyphicon-volume-off');
-        }
+        checkActive();
       }
     }
   }
@@ -32,6 +28,7 @@
       for(var i = 0; i < loopFactory.loops.length; i++){
         loopFactory.loops[i].unmuteTrack()
       }
+    checkActive();
     }
   }
 
@@ -41,6 +38,7 @@
       for(var i = 0; i < loopFactory.loops.length; i++){
         loopFactory.loops[i].muteTrack()
       }
+    checkActive();
     }
   }
 
@@ -67,11 +65,21 @@
     var soloButtons = document.getElementsByClassName('soloButton');
     for(var j = 0; j < soloButtons.length; j++){
       soloButtons[j].onclick = function() {
-        for(var i = 0; i < soloButtons.length; i++) {
-          var index = (Number(this.id.split('soloButton-')[1]) - 1);
-          loopFactory.loops[i].muteTrack()
-          loopFactory.loops[index].unmuteTrack();
+        var index = (Number(this.id.split('soloButton-')[1]) - 1);
+        if(loopFactory.loops[index].solo === false) {
+          for(var i = 0; i < soloButtons.length; i++) {
+            loopFactory.loops[i].muteTrack();
+            loopFactory.loops[i].unsoloTrack();
+            loopFactory.loops[index].unmuteTrack();
+            loopFactory.loops[index].soloTrack();
+          }
+        } else {
+          for(var i = 0; i < soloButtons.length; i++) {
+            loopFactory.loops[i].unmuteTrack();
+            loopFactory.loops[i].unsoloTrack();
+          }
         }
+        checkActive();
       }
     }
 
