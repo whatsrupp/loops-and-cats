@@ -9,7 +9,8 @@
             fillParent: true,
             waveColor: 'violet',
             progressColor: 'purple',
-            height: waveformFrame.offsetHeight
+            height: waveformFrame.offsetHeight,
+            audioContext: audioContext
           });
       wave.load(url);
       return wave;

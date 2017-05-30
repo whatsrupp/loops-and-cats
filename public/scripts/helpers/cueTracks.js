@@ -35,5 +35,6 @@
     request.send();
   }
 
+  exports.loopingNodeTest = loopingNodeTest
   exports.cueActiveTracks = cueActiveTracks
 })(this)
