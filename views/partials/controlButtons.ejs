@@ -1,8 +1,13 @@
 <div id='control-button-container'>
   <div class='control-button-column'>
-    <a href="javascript:void(0);" id='decrease-recording-length'>
-      <span class='glyphicon glyphicon-minus'></span>
-    </a>
+    <div>
+
+      <p>Number of Bars To Record:</p>
+      <a href="javascript:void(0);" id='decrease-recording-length'>
+        <span class='glyphicon glyphicon-minus'></span>
+      </a>
+
+    </div>
     <p id='recording-length-display'>Number of Bars: 1</p>
     <a href="javascript:void(0);" id='increase-recording-length'>
       <span class='glyphicon glyphicon-plus'></span>
@@ -10,17 +15,16 @@
   </div>
   <div class='control-button-column'>
     <button id='recording-button' class="notRec"></button>
-    <button id='record-mix-button'>Save Mix</button>
+    <a href="javascript:void(0);" id='record-mix-button'>Save Mix</a>
   </div>
   <div class='control-button-column'>
     <a href="javascript:void(0);" id='play-all'>Play All</a>
     <a href="javascript:void(0);" id='mute-all'>Mute All</a>
+    <div id="metronome-control">
+      <h5>Metronome </h5>
+      <label class='switch'>
+        <input type='checkbox' id="metronomeButton" class='off'>
+        <div class='slider round'></div>
+      </div>
   </div>
-</div>
-
-<div id="controls">
-  <h5>Metronome </h5>
-  <label class='switch'>
-    <input type='checkbox' id="metronomeButton" class='off'>
-    <div class='slider round'></div>
 </div>

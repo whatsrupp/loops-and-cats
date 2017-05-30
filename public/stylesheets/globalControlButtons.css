@@ -1,4 +1,16 @@
 #control-button-container{
-  width: 90%;
+  width: 80%;
   height: 10%;
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  align-items:center;
+}
+
+.control-button-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
+
 }

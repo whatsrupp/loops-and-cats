@@ -5,7 +5,6 @@
     initializeMuteAllButton();
     initializeSoloButtons();
     initializeDeleteButtons();
-    initializeStopBeaterButton();
     initializePlayAllButton();
     initializeDecreaseButton();
     initializeIncreaseButton();
@@ -54,12 +53,6 @@
     }
   }
 
-  initializeStopBeaterButton = function(){
-    var stopBeaterButton = document.getElementById('stop-beater-button');
-    stopBeaterButton.onclick = function() {
-      toggleMasterBeaterState()
-    };
-  }
 
   initializeSoloButtons = function(){
     var soloButtons = document.getElementsByClassName('soloButton');
