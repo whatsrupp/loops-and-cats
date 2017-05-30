@@ -67,17 +67,9 @@
       soloButtons[j].onclick = function() {
         var index = (Number(this.id.split('soloButton-')[1]) - 1);
         if(loopFactory.loops[index].solo === false) {
-          for(var i = 0; i < soloButtons.length; i++) {
-            loopFactory.loops[i].muteTrack();
-            loopFactory.loops[i].unsoloTrack();
-            loopFactory.loops[index].unmuteTrack();
-            loopFactory.loops[index].soloTrack();
-          }
+          soloEvent(soloButtons, index);
         } else {
-          for(var i = 0; i < soloButtons.length; i++) {
-            loopFactory.loops[i].unmuteTrack();
-            loopFactory.loops[i].unsoloTrack();
-          }
+          unsoloEvent(soloButtons, index);
         }
         checkActive();
       }
@@ -104,10 +96,23 @@
         display.innerHTML = "Record Length: " + scheduler.recordingLength
       }
     }
-
-
-
   }
 
   exports.initializeAllButtons = initializeAllButtons
 })(this)
+
+soloEvent = function(soloButtons, index) {
+  for(var i = 0; i < soloButtons.length; i++) {
+    loopFactory.loops[i].muteTrack();
+    loopFactory.loops[i].unsoloTrack();
+    loopFactory.loops[index].unmuteTrack();
+    loopFactory.loops[index].soloTrack();
+  }
+}
+
+unsoloEvent = function(soloButtons, index){
+  for(var i = 0; i < soloButtons.length; i++) {
+    loopFactory.loops[i].unmuteTrack();
+    loopFactory.loops[i].unsoloTrack();
+  }
+}
