@@ -40,7 +40,7 @@
   }
 
   initializeDeleteButtons = function(){
-    var delButtons = document.getElementsByClassName('deleteButton')
+    var delButtons = document.getElementsByClassName('track-button deleteButton')
     var blankAudio = 'audio/Silence.ogg'
     for(var i = 0; i < delButtons.length; i++){
       delButtons[i].onclick = function() {
