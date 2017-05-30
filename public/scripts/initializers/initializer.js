@@ -10,6 +10,7 @@
     initializeMasterBeater();
     initializeMuteButtons();
     initializeKeyboardShortcuts();
+    initializeResponsiveWaveforms();
   }
 
   function populateDivsWithLoops () {
@@ -19,13 +20,12 @@
   }
   function initialiseRequiredPrototypes (){
     waveMaker = new WaveMaker();
-    loopFactory = new LoopFactory(audioSrc, waveMaker, 1);
+    loopFactory = new LoopFactory();
     spinningHeads = new SpinningHeads();
     audioContext = new AudioContext();
     masterBeater = new Worker("/scripts/workers/masterBeater.js")
     scheduler = new Scheduler();
   }
-
 
   exports.init = init
 })(this)
