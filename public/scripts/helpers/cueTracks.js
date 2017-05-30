@@ -6,6 +6,8 @@
         for(var i = 0; i < loopFactory.loops.length; i++){
           var loop = loopFactory.loops[i]
           loop.waveform.play()
+          node = loopFactory.loops[i].waveform.backend.source
+          node.connect(merger, 0, i);
         }
       }
       cueFunction(beatNumber, time, playWaveForms)

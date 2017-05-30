@@ -25,6 +25,14 @@
     audioContext = new AudioContext();
     masterBeater = new Worker("/scripts/workers/masterBeater.js")
     scheduler = new Scheduler();
+    setupMixListener(audioContext);
+  }
+
+  function setupMixListener(audio){
+    mixedAudio = audio.createMediaStreamDestination();
+    merger = audio.createChannelMerger(8);
+    merger.connect(mixedAudio);
+    mixRecorder = new MediaRecorder(mixedAudio.stream);
   }
 
   exports.init = init
