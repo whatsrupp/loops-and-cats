@@ -7,6 +7,7 @@
     this.waveMaker = waveMaker;
     this.waveform = this.waveMaker.createWave(this.url, this.number);
     this.lengthInBars = 1;
+    this.solo = false;
 
     this.updateLength = function(newLength){
       this.lengthInBars = newLength;
@@ -30,6 +31,14 @@
     this.updateURL = function(url) {
       this.url = url
       this.waveform.load(url)
+    }
+
+    this.soloTrack = function() {
+      this.solo = true;
+    }
+
+    this.unsoloTrack = function() {
+      this.solo = false;
     }
   }
 

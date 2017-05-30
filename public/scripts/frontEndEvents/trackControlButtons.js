@@ -1,7 +1,7 @@
 (function(exports){
 
-  initializeMuteButtons = function(){
-    initializeIndividualButtons();
+  initializeAllButtons = function(){
+    initializeIndividualMuteButtons();
     initializeMuteAllButton();
     initializeSoloButtons();
     initializeDeleteButtons();
@@ -12,12 +12,13 @@
 
   }
 
-  initializeIndividualButtons = function(){
+  initializeIndividualMuteButtons = function(){
     var muteButtons = document.getElementsByClassName('muteButton');
     for(var i = 0; i < muteButtons.length; i++){
       muteButtons[i].onclick = function() {
         var index = (Number(this.id.split('muteButton-')[1]) - 1);
-        loopFactory.loops[index].toggleMuteState()
+        loopFactory.loops[index].toggleMuteState();
+        checkActive();
       }
     }
   }
@@ -27,6 +28,7 @@
       for(var i = 0; i < loopFactory.loops.length; i++){
         loopFactory.loops[i].unmuteTrack()
       }
+    checkActive();
     }
   }
 
@@ -36,11 +38,12 @@
       for(var i = 0; i < loopFactory.loops.length; i++){
         loopFactory.loops[i].muteTrack()
       }
+    checkActive();
     }
   }
 
   initializeDeleteButtons = function(){
-    var delButtons = document.getElementsByClassName('deleteButton')
+    var delButtons = document.getElementsByClassName('track-button deleteButton')
     var blankAudio = 'audio/Silence.ogg'
     for(var i = 0; i < delButtons.length; i++){
       delButtons[i].onclick = function() {
@@ -62,11 +65,13 @@
     var soloButtons = document.getElementsByClassName('soloButton');
     for(var j = 0; j < soloButtons.length; j++){
       soloButtons[j].onclick = function() {
-        for(var i = 0; i < soloButtons.length; i++) {
-          var index = (Number(this.id.split('soloButton-')[1]) - 1);
-          loopFactory.loops[i].muteTrack()
-          loopFactory.loops[index].unmuteTrack();
+        var index = (Number(this.id.split('soloButton-')[1]) - 1);
+        if(loopFactory.loops[index].solo === false) {
+          soloEvent(soloButtons, index);
+        } else {
+          unsoloEvent(soloButtons, index);
         }
+        checkActive();
       }
     }
 
@@ -77,7 +82,7 @@
         if(scheduler.recordingLength > 1) {
           scheduler.recordingLength /= 2
         }
-        display.innerHTML = "Record Length: " + scheduler.recordingLength
+        display.innerHTML = "Number of Bars: " + scheduler.recordingLength
       }
     }
 
@@ -88,13 +93,26 @@
         if(scheduler.recordingLength < 8) {
           scheduler.recordingLength *= 2
         }
-        display.innerHTML = "Record Length: " + scheduler.recordingLength
+        display.innerHTML = "Number of Bars: " + scheduler.recordingLength
       }
     }
-
-
-
   }
 
-  exports.initializeMuteButtons = initializeMuteButtons
+  exports.initializeAllButtons = initializeAllButtons
 })(this)
+
+soloEvent = function(soloButtons, index) {
+  for(var i = 0; i < soloButtons.length; i++) {
+    loopFactory.loops[i].muteTrack();
+    loopFactory.loops[i].unsoloTrack();
+    loopFactory.loops[index].unmuteTrack();
+    loopFactory.loops[index].soloTrack();
+  }
+}
+
+unsoloEvent = function(soloButtons, index){
+  for(var i = 0; i < soloButtons.length; i++) {
+    loopFactory.loops[i].unmuteTrack();
+    loopFactory.loops[i].unsoloTrack();
+  }
+}

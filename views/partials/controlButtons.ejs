@@ -1,11 +1,21 @@
 <section class="main-controls">
   <div id="buttons">
-    <button id='recording-button' class="notRec"></button>
-    <button id='mute-all'>Mute All</button>
-    <button id='play-all'>Play All</button>
-    <button id='increase-recording-length'>Increase</button>
-    <button id='decrease-recording-length'>Decrease</button>
-    <h1 id='recording-length-display'>Record Length: 1</h1>
+
+    <div class='barLength'>
+      <button id='recording-button' class="notRec"></button>
+      <a href="javascript:void(0);" id='decrease-recording-length'>
+        <span class='glyphicon glyphicon-minus'></span>
+      </a>
+
+      <b id='recording-length-display'>Number of Bars: 1</b>
+
+      <a href="javascript:void(0);" id='increase-recording-length'>
+        <span class='glyphicon glyphicon-plus'></span>
+      </a>
+      <a href="javascript:void(0);" id='mute-all'>Mute All</a>
+      <a href="javascript:void(0);" id='play-all'>Play All</a>
+    </div>
+
   </div>
 </section>
 
@@ -16,5 +26,5 @@
 
 </div>
 <div id='recording-length-display'>
-  
+
 </div>
