@@ -28,7 +28,16 @@
       loopFactory.loops[6].toggleMuteState();
     } else if(keyCode == 56) {
       loopFactory.loops[7].toggleMuteState();
+    } else if(keyCode == 13) {
+      var recordingButton = $('#recording-button')
+      if (loopFactory.isFull()){
+        alert("No free loops: please delete one and try again!")
+      } else {
+        scheduler.isRecording = !scheduler.isRecording
+        recordingButton.prop('disabled', true);
+      };
     }
+    checkActive();
   };
 
 exports.initializeKeyboardShortcuts = initializeKeyboardShortcuts;
