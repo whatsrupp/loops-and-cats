@@ -1,11 +1,15 @@
 (function(exports){
-  
+
   function WaveMaker(){
     this.createWave = function(url, number){
+      var element = 'waveform' + (number + 1)
+      var waveformFrame = document.getElementById(element)
           var wave = WaveSurfer.create({
-            container: '#waveform' + (number + 1).toString(),
+            container: waveformFrame,
+            fillParent: true,
             waveColor: 'violet',
-            progressColor: 'purple'
+            progressColor: 'purple',
+            height: waveformFrame.offsetHeight
           });
       wave.load(url);
       return wave;

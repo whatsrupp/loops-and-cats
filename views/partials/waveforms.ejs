@@ -1,0 +1,12 @@
+<div id= 'tracks-container'>
+  <% for(var i=1; i<9; i++) {%>
+    <div class='track'>
+       <div id="waveform<%=i %>" class='wavecontainer waveform'></div>
+       <div class='track-controls'>
+         <button class='track-button deleteButton' id='deleteButton-<%=i %>'>Delete</button>
+         <button class='track-button muteButton' id='muteButton-<%=i %>'>Mute</button>
+         <button class='track-button soloButton' id='soloButton-<%=i %>'>Solo</button>
+      </div>
+    </div>
+  <% } %>
+</div>
