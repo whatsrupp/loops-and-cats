@@ -1,3 +1,85 @@
-.barLength {
-  font-size: 30px;
+#control-button-container{
+  width: 80%;
+  height: 20%;
+  display: flex;
+  margin: auto;
+  background-color: #303030;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #171717;
+}
+
+#recording-length-label{
+  display: flex;
+  height: 50%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.bar-adjusters{
+  display:flex;
+  justify-content: space-around;
+  align-items:center;
+  margin:auto;
+  height: 50%;
+  width: 80%;
+}
+
+.vertical-half{
+  height:50%
+}
+.bottom{
+  width:50%;
+}
+.control-button-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
+  height: 100%;
+}
+#right-column{
+  display: flex;
+  flex-direction: row;
+}
+
+.right-column{
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+}
+.left-column{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
+}
+#recording-length-display{
+  font-size: 20px;
+}
+
+.third {
+  width: 33.33%;
+}
+.half{
+  width: 50%
+}
+
+.control-button, .control-button:visited {
+  color: #e3e3e3;
+  text-decoration:none;
+  cursor: pointer;
+  cursor: hand;
+}
+.control-button>span:hover, .control-button:hover{
+  color: #dff302;
+  text-decoration:none;
+  cursor: pointer;
+  cursor: hand;
 }

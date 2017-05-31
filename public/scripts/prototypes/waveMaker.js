@@ -7,8 +7,8 @@
           var wave = WaveSurfer.create({
             container: waveformFrame,
             fillParent: true,
-            waveColor: 'violet',
-            progressColor: 'purple',
+            waveColor: '#dff302',
+            progressColor: '#dff302',
             height: waveformFrame.offsetHeight,
             audioContext: audioContext
           });

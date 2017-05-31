@@ -5,7 +5,6 @@
     initializeMuteAllButton();
     initializeSoloButtons();
     initializeDeleteButtons();
-    initializeStopBeaterButton();
     initializePlayAllButton();
     initializeDecreaseButton();
     initializeIncreaseButton();
@@ -54,12 +53,6 @@
     }
   }
 
-  initializeStopBeaterButton = function(){
-    var stopBeaterButton = document.getElementById('stop-beater-button');
-    stopBeaterButton.onclick = function() {
-      toggleMasterBeaterState()
-    };
-  }
 
   initializeSoloButtons = function(){
     var soloButtons = document.getElementsByClassName('soloButton');
@@ -68,8 +61,10 @@
         var index = (Number(this.id.split('soloButton-')[1]) - 1);
         if(loopFactory.loops[index].solo === false) {
           soloEvent(soloButtons, index);
+          $(soloButtons[index]).css({ 'color': '#dff302'});
         } else {
           unsoloEvent(soloButtons, index);
+          $(soloButtons[index]).css({ 'color': '#e3e3e3'});
         }
         checkActive();
       }
@@ -82,7 +77,7 @@
         if(scheduler.recordingLength > 1) {
           scheduler.recordingLength /= 2
         }
-        display.innerHTML = "Number of Bars: " + scheduler.recordingLength
+        display.innerHTML = scheduler.recordingLength.toString()
       }
     }
 
@@ -93,7 +88,7 @@
         if(scheduler.recordingLength < 8) {
           scheduler.recordingLength *= 2
         }
-        display.innerHTML = "Number of Bars: " + scheduler.recordingLength
+        display.innerHTML = scheduler.recordingLength.toString()
       }
     }
   }
@@ -107,6 +102,7 @@ soloEvent = function(soloButtons, index) {
     loopFactory.loops[i].unsoloTrack();
     loopFactory.loops[index].unmuteTrack();
     loopFactory.loops[index].soloTrack();
+
   }
 }
 

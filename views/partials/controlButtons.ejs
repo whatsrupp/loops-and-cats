@@ -1,32 +1,31 @@
-<section class="main-controls">
-  <div id="buttons">
-
-    <div class='barLength'>
-      <button id='recording-button' class="notRec"></button>
-      <a href="javascript:void(0);" id='decrease-recording-length'>
+<div id='control-button-container'>
+  <div class='third control-button-column'>
+    <div id='recording-length-label'>
+      <p>Recording Length (Bars)</p>
+    </div>
+    <div class='bottom bar-adjusters'>
+      <a class='control-button' id='decrease-recording-length'>
         <span class='glyphicon glyphicon-minus'></span>
       </a>
-
-      <b id='recording-length-display'>Number of Bars: 1</b>
-
-      <a href="javascript:void(0);" id='increase-recording-length'>
+      <p id='recording-length-display'>1</p>
+      <a  class='control-button' id='increase-recording-length'>
         <span class='glyphicon glyphicon-plus'></span>
       </a>
-      <a href="javascript:void(0);" id='mute-all'>Mute All</a>
-      <a href="javascript:void(0);" id='play-all'>Play All</a>
     </div>
-
   </div>
-</section>
-
-<div id='global-control-buttons'>
-
+  <div class='third control-button-column'>
+    <button id='recording-button' class="notRec"></button>
+    <a  id='record-mix-button' class='control-button'>Save Mix</a>
+  </div>
+  <div class='third control-button-column' id='right-column'>
+    <div class='left-column half'>
+      <a class='control-button' id='play-all'>Play All</a>
+      <a class='control-button' id='mute-all'>Mute All</a>
+    </div>
+    <div class='right-column half'>
+        <label class='switch'>
+        <input type='checkbox' id="metronomeButton" class='off'>
+        <div class='slider round'></div>
+    </div>
+  </div>
 </div>
-<div id='recording-button-div'>
-
-</div>
-<div id='recording-length-display'>
-
-</div>
-
-<button id='save-mix-button'>Save Mix</button>
