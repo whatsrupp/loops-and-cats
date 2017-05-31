@@ -34,12 +34,16 @@
   font-size: 2vh;
   color: #e3e3e3;
   text-decoration:none;
+  cursor: pointer;
+  cursor: hand;
 
 }
 
 .track-button>span:hover, .track-button:hover{
   color: #dff302;
   text-decoration:none;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .track-controls{
