@@ -2,7 +2,7 @@
 
   const NumberOfLoopTracks = 8
 
-  function MixRecorder(audioContext,){
+  function MixRecorder(audioContext){
     this.audioContext = audioContext
     this.mixedAudio = audioContext.createMediaStreamDestination();
     this.merger = audioContext.createChannelMerger(NumberOfLoopTracks)
