@@ -75,7 +75,7 @@
         if(scheduler.recordingLength > 1) {
           scheduler.recordingLength /= 2
         }
-        display.innerHTML = "Number of Bars: " + scheduler.recordingLength
+        display.innerHTML = scheduler.recordingLength.toString()
       }
     }
 
@@ -86,7 +86,7 @@
         if(scheduler.recordingLength < 8) {
           scheduler.recordingLength *= 2
         }
-        display.innerHTML = "Number of Bars: " + scheduler.recordingLength
+        display.innerHTML = scheduler.recordingLength.toString()
       }
     }
   }

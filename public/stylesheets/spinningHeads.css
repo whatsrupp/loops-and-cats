@@ -1,6 +1,6 @@
 .head {
-  width: 50px;
-  height: 50px;
+  width: 5%;
+  height: 5%;
 }
 .headson {
   -webkit-animation:spin 2s linear infinite;
@@ -17,4 +17,5 @@
   display: flex;
   justify-content: space-around;
   align-items:center;
+  padding: 20px;
 }

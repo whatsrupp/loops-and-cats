@@ -3,7 +3,7 @@
   height: 10%;
   display: flex;
   background-color: #272727 ;
-  border-radius: 1px;
+  border-radius: 3px;
   border-width: 1px;
   border-style: solid;
   border-color: #171717;
@@ -28,11 +28,13 @@
   align-items:center;
 }
 
-.track-button{
+.track-button, .track-button:visited{
   height: 33%;
   text-align: center;
   font-size: 2vh;
   color: #e3e3e3;
+  text-decoration:none;
+
 }
 
 .track-button>span:hover, .track-button:hover{

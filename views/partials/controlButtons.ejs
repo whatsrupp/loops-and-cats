@@ -1,30 +1,34 @@
 <div id='control-button-container'>
-  <div class='control-button-column'>
-    <div>
-
-      <p>Number of Bars To Record:</p>
-      <a href="javascript:void(0);" id='decrease-recording-length'>
-        <span class='glyphicon glyphicon-minus'></span>
-      </a>
-
-    </div>
-    <p id='recording-length-display'>Number of Bars: 1</p>
-    <a href="javascript:void(0);" id='increase-recording-length'>
-      <span class='glyphicon glyphicon-plus'></span>
-    </a>
-  </div>
-  <div class='control-button-column'>
-    <button id='recording-button' class="notRec"></button>
-    <a href="javascript:void(0);" id='record-mix-button'>Save Mix</a>
-  </div>
-  <div class='control-button-column'>
-    <a href="javascript:void(0);" id='play-all'>Play All</a>
-    <a href="javascript:void(0);" id='mute-all'>Mute All</a>
-    <div id="metronome-control">
-      <h5>Metronome </h5>
-      <label class='switch'>
-        <input type='checkbox' id="metronomeButton" class='off'>
-        <div class='slider round'></div>
+  <div class='third control-button-column'>
+      <div class='vertical-half'>
+        Recording Length (Bars)
       </div>
+      <div class='bottom bar-adjusters'>
+        <a class='control-button' id='decrease-recording-length'>
+          <span class='glyphicon glyphicon-minus'></span>
+        </a>
+        <p id='recording-length-display'>1</p>
+        <a  class='control-button' id='increase-recording-length'>
+          <span class='glyphicon glyphicon-plus'></span>
+        </a>
+      </div>
+  </div>
+  <div class='third control-button-column'>
+    <button id='recording-button' class="notRec"></button>
+    <a  id='record-mix-button' class='control-button'>Save Mix</a>
+  </div>
+  <div class='third control-button-column' id='right-column'>
+    <div class='half'>
+      <a class='control-button' id='play-all'>Play All</a>
+      <a class='control-button' id='mute-all'>Mute All</a>
+    </div>
+    <div class='half'>
+      <div id="metronome-control">
+        <label class='switch'>
+          <input type='checkbox' id="metronomeButton" class='off'>
+          <div class='slider round'></div>
+        </div>
+    </div>
+
   </div>
 </div>
