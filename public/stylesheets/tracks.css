@@ -48,7 +48,7 @@
 
 .track-controls{
   display: flex;
-  flex-direction: column;
+  flex-direction: rtl;
   justify-content: space-around;
   width: 10%;
   height:100%;

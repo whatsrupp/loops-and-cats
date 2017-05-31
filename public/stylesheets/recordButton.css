@@ -1,11 +1,11 @@
 
 .notRec{
 	background-color: darkred;
-  width: 35px;
-	height: 35px;
+  width: 50px;
+	height: 50px;
 	font-size: 0;
 	border: 0;
-	border-radius: 35px;
+	border-radius: 50px;
 	margin: 18px;
 	outline: none;
 }
@@ -15,12 +15,12 @@
 	animation-duration: 0.5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
-  width: 35px;
-	height: 35px;
+  width: 50px;
+	height: 50px;
 	font-size: 0;
 	background-color: red;
 	border: 0;
-	border-radius: 35px;
+	border-radius: 50px;
 	margin: 18px;
 	outline: none;
 }
