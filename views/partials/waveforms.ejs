@@ -1,24 +1,28 @@
 <div id= 'tracks-container'>
   <% for(var i=1; i<9; i++) {%>
     <div class='track'>
-       <div id="waveform<%=i %>" class='wavecontainer waveform'></div>
-       <div class='track-controls'>
+      <div id="waveform<%=i %>" class='wavecontainer waveform'></div>
+      <div class='track-controls'>
 
-         <a href="javascript:void(0);" class='track-button muteButton' id='muteButton-<%=i %>'>
-           <span class='glyphicon glyphicon-volume-up'></span>
-         </a>
+        <a href="javascript:void(0);" class='track-button muteButton' id='muteButton-<%=i %>'>
+          <span class='glyphicon glyphicon-volume-up'></span>
+        </a>
 
-         <br />
+        <br />
 
-         <a href="javascript:void(0);" class='track-button soloButton' id='soloButton-<%=i %>'>Solo</a>
+        <a href="javascript:void(0);" class='track-button soloButton' id='soloButton-<%=i %>'>Solo</a>
+        <a href="javascript:void(0);" class='track-button stopButton' id='stopButton-<%=i %>' onclick='loopFactory.loops[<%=i-1%>].waveform.stop();'>
+          <span class='glyphicon glyphicon-arrow-left'></span>
+        </a>
 
-         <br />
+        <br />
 
-         <a href="javascript:void(0);" class='track-button deleteButton' id='deleteButton-<%=i %>'>
-           <span class='glyphicon glyphicon-trash'></span>
-         </a>
+        <a href="javascript:void(0);" class='track-button deleteButton' id='deleteButton-<%=i %>'>
+          <span class='glyphicon glyphicon-trash'></span>
+        </a>
 
       </div>
+      <!-- <input type="range"> -->
     </div>
   <% } %>
 </div>
