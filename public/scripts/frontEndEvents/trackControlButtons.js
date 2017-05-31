@@ -5,7 +5,6 @@
     initializeMuteAllButton();
     initializeSoloButtons();
     initializeDeleteButtons();
-    initializeStopBeaterButton();
     initializePlayAllButton();
     initializeDecreaseButton();
     initializeIncreaseButton();
@@ -54,12 +53,6 @@
     }
   }
 
-  initializeStopBeaterButton = function(){
-    var stopBeaterButton = document.getElementById('stop-beater-button');
-    stopBeaterButton.onclick = function() {
-      toggleMasterBeaterState()
-    };
-  }
 
   initializeSoloButtons = function(){
     var soloButtons = document.getElementsByClassName('soloButton');
@@ -82,7 +75,7 @@
         if(scheduler.recordingLength > 1) {
           scheduler.recordingLength /= 2
         }
-        display.innerHTML = "Number of Bars: " + scheduler.recordingLength
+        display.innerHTML = scheduler.recordingLength.toString()
       }
     }
 
@@ -93,7 +86,7 @@
         if(scheduler.recordingLength < 8) {
           scheduler.recordingLength *= 2
         }
-        display.innerHTML = "Number of Bars: " + scheduler.recordingLength
+        display.innerHTML = scheduler.recordingLength.toString()
       }
     }
   }

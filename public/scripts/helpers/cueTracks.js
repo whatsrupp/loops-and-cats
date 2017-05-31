@@ -3,14 +3,18 @@
 
   function cueActiveTracks(beatNumber, time){
       function playWaveForms(){
-        for(var i = 0; i < loopFactory.loops.length; i++){
-          var loop = loopFactory.loops[i]
+        for(var trackNumber = 0; trackNumber < loopFactory.loops.length; trackNumber++){
+          var loop = loopFactory.loops[trackNumber]
           loop.waveform.play()
-          node = loopFactory.loops[i].waveform.backend.source
-          node.connect(merger, 0, i);
+          connectBufferedTracksToMixRecorderMerger(trackNumber)
         }
       }
       cueFunction(beatNumber, time, playWaveForms)
+  }
+
+  function connectBufferedTracksToMixRecorderMerger(trackNumber){
+    node = loopFactory.loops[trackNumber].waveform.backend.source
+    node.connect(mixRecorder.merger, 0, trackNumber);
   }
 
   function cueTrack(time){
