@@ -76,7 +76,7 @@ I want to be able to hear a metronome
 ```
 
 ## Trying Out Loops and Cats
-It might be live on Heroku [here](loops-and-cats.herokuapp.com) but, as much as we love Heroku, it often tears down inactive free sites to free up their systems when you least expect it. A safer bet might be a local installation.
+It might be live on Heroku [here](https://loops-and-cats.herokuapp.com/) but, as much as we love Heroku, it often tears down inactive free sites to free up their systems when you least expect it. A safer bet might be a local installation.
 
 We're assuming you are on a Mac set up for development, are more competent than us and that you have Homebrew installed. If not the following links might help:
 Install Homebrew [here](https://brew.sh/).
